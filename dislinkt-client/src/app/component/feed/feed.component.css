@@ -21,7 +21,12 @@
     padding: 10px;
     color: gray;
     padding-left: 15px;
+}
 
+.comments {
+    width: 95%;
+    margin: auto;
+    padding: auto;
 }
 
 .feed-input > form {

@@ -27,8 +27,15 @@
         <p class="post-info comment">8 comments</p>
         <hr color="#c5c5c5" size="1" class="line">
         <button mat-raised-button color="secondary" class="like-button">Like</button>
-        <button mat-raised-button color="secondary" class="like-button">Comment</button>
+        <button mat-raised-button color="secondary" class="like-button" (click)="showComentInput()">Comment</button> <br><br>
+        <div class="feed-input comments" *ngIf="canComment === true">
+            <form>
+                <mat-icon aria-hidden="false">comment</mat-icon>
+                <input type="text" placeholder="Write a comment" class="input-comment"/>
+            </form>
+        </div>
     </div> <br>
+
     <div class="feed-input-container">
         <div class="picture-name">
             <p class="profile-pic">
@@ -37,13 +44,20 @@
             <p class="name-surname">John Doe</p>
         </div> <br> <br>
         <p class="post-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum aspernatur vel est fugiat laboriosam odio voluptatibus iusto maiores tempore, nulla aperiam?
-             Culpa, nam doloribus est ex sint non fugiat labore. Lorem ipsum dolor sit amet consectetur adipisicing elit. </p> <br>
-        <p class="post-info likes">43 likes</p>
+            Culpa, nam doloribus est ex sint non fugiat labore. Lorem ipsum dolor sit amet consectetur adipisicing elit. </p> <br>
+        <p class="post-info likes">41 likes</p>
         <p class="post-info comment">1 comment</p>
         <hr color="#c5c5c5" size="1" class="line">
         <button mat-raised-button color="secondary" class="like-button">Like</button>
-        <button mat-raised-button color="secondary" class="like-button">Comment</button>
-    </div> <br> 
+        <button mat-raised-button color="secondary" class="like-button" (click)="showComentInput()">Comment</button> <br><br>
+        <div class="feed-input comments" *ngIf="canComment === true">
+            <form>
+                <mat-icon aria-hidden="false">comment</mat-icon>
+                <input type="text" placeholder="Write a comment" class="input-comment"/>
+            </form>
+        </div>
+    </div> <br>
+
     <div class="feed-input-container">
         <div class="picture-name">
             <p class="profile-pic">
@@ -52,11 +66,17 @@
             <p class="name-surname">John Doe</p>
         </div> <br> <br>
         <p class="post-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum aspernatur vel est fugiat laboriosam odio voluptatibus iusto maiores tempore, nulla aperiam?
-             Culpa, nam doloribus est ex sint non fugiat labore. Lorem ipsum dolor sit amet consectetur adipisicing elit. </p> <br>
-        <p class="post-info likes">15 likes</p>
+            Culpa, nam doloribus est ex sint non fugiat labore. Lorem ipsum dolor sit amet consectetur adipisicing elit. </p> <br>
+        <p class="post-info likes">13 likes</p>
         <p class="post-info comment">2 comments</p>
         <hr color="#c5c5c5" size="1" class="line">
         <button mat-raised-button color="secondary" class="like-button">Like</button>
-        <button mat-raised-button color="secondary" class="like-button">Comment</button>
-    </div>
+        <button mat-raised-button color="secondary" class="like-button" (click)="showComentInput()">Comment</button> <br><br>
+        <div class="feed-input comments" *ngIf="canComment === true">
+            <form>
+                <mat-icon aria-hidden="false">comment</mat-icon>
+                <input type="text" placeholder="Write a comment" class="input-comment"/>
+            </form>
+        </div>
+    </div> <br>
 </div>
