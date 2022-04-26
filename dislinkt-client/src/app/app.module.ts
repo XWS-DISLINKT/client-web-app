@@ -19,6 +19,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { FeedComponent } from './component/feed/feed.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { MatMenuModule } from '@angular/material/menu';
     AppComponent,
     LoginComponent,
     RegistrationComponent,
-    NavbarComponent
+    NavbarComponent,
+    FeedComponent
   ],
   imports: [
     BrowserModule,
