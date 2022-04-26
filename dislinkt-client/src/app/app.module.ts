@@ -17,12 +17,16 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
+import { NavbarComponent } from './component/navbar/navbar.component';
+import { MatMenuModule } from '@angular/material/menu';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +41,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatSnackBarModule,
     MatIconModule,
     MatSelectModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
