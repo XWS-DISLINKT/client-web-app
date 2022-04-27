@@ -17,11 +17,11 @@
     <button *ngIf="isAuthenticated" mat-button>Messaging</button>
     <button *ngIf="isAuthenticated" mat-button>My profile</button>
     
-    <button *ngIf="!isAuthenticated" mat-button>Profiles</button>
+    <button *ngIf="!isAuthenticated" mat-button  [routerLink]="['/profiles']" >Profiles</button>
     <span class="example-spacer"></span>
     <button *ngIf="isAuthenticated" mat-button>Sign Out</button>
     
-    <button *ngIf="!isAuthenticated" mat-button>Register</button>
-    <button *ngIf="!isAuthenticated" mat-flat-button color="primary">Sign In</button>
+    <button *ngIf="!isAuthenticated" mat-button [routerLink]="['/registration']" >Register</button>
+    <button *ngIf="!isAuthenticated" mat-stroked-button  [routerLink]="['/login']"  color="primary">Sign In</button>
 
 </mat-toolbar>

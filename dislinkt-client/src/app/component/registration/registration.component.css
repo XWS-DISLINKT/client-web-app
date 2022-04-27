@@ -34,3 +34,9 @@
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.05);
     width: 35%;
 }
+
+
+button {
+    border-radius: 30px;
+    padding-inline: 6%;
+}
