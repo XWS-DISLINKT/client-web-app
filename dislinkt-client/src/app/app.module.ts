@@ -19,6 +19,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { ProfilesComponent } from './component/profiles/profiles.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { MatMenuModule } from '@angular/material/menu';
     AppComponent,
     LoginComponent,
     RegistrationComponent,
-    NavbarComponent
+    NavbarComponent,
+    ProfilesComponent
   ],
   imports: [
     BrowserModule,
