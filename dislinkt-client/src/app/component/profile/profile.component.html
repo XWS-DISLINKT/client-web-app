@@ -9,7 +9,7 @@
         <div class="flex-container">
             <div class="flex-item-left">
                 <h1 style="margin-top: 5%; font-size: 30px; font-weight: 400;">
-                    Name Surname
+                    John Doe
                 </h1>
                 <p style="font-weight: 300;">
                     Java Developer at SomeCompany, Belgrade
@@ -28,33 +28,108 @@
                     <mat-icon style="font-size: 34px; ">notifications</mat-icon>
                 </button>
                 <h3 style="margin-top: 20%; font-size: 18px; font-weight: 400;">Contact Info</h3>
-                <p>E-mail: <span style="font-weight: 300; margin-left: 5%;">someuser@gmail.com</span></p>
+                <p>E-mail: <span style="font-weight: 300; margin-left: 5%;">johndoe@gmail.com</span></p>
                 <p>Phone number:<span style="font-weight: 300; margin-left: 5%;">+381625563743</span></p>
             </div>
             <div style="width: 100%;">
                 <div style="float: right; width: 250px;">
-                <button mat-flat-button color="primary" style="margin-inline:5%; margin-bottom: 10%; margin-top: 5%; padding-inline: 10%;">Connect
-                </button>
-                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-                    <mat-icon>more_vert</mat-icon>
-                </button>
-                <mat-menu #menu="matMenu">
-                    <button mat-menu-item>
-                        <span>Remove Connection</span>
+                    <button mat-flat-button color="primary"
+                        style="margin-inline:5%; margin-bottom: 10%; margin-top: 5%; padding-inline: 10%;">Connect
                     </button>
-                    <button mat-menu-item>
-                        <span>Block</span>
+                    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                        <mat-icon>more_vert</mat-icon>
                     </button>
-                </mat-menu>
-            </div>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item>
+                            <span>Remove Connection</span>
+                        </button>
+                        <button mat-menu-item>
+                            <span>Block</span>
+                        </button>
+                    </mat-menu>
+                </div>
             </div>
         </div>
 
     </div>
 
     <br>
-    <div class="profiles-container">
-        <br> <br><br> <br><br> <br><br> <br>hj
+    <div class="profiles-container flex-container" style="padding: 2%; padding-inline: 3%;">
+        <h2 style="margin: 1%; font-size: 24px; font-weight: 400;">About</h2>
+        <p style="font-weight: 300;">
+            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti
+            atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique
+            sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum
+            facilis est et expedita distinctio.
+        </p>
     </div>
-    <br><br>
+
+    <br>
+    <div class="profiles-container flex-container" style=" width:100%; padding: 2%; padding-inline: 3%;">
+        <h2 style="margin: 1%; font-size: 24px; font-weight: 400; width:28%;">Activity</h2>
+        <div style="width:70%">
+            <button mat-stroked-button color="primary"
+                style="float: right; margin-inline:5%;padding-inline: 5%; margin-top:1%">Show All Posts
+            </button>
+        </div>
+        
+        <hr color="#c5c5c5" size="1" class="line">
+        <div class="feed-input-container">
+            <div class="picture-name">
+                <p class="profile-pic">
+                    <img src="../../../assets/images/profile-picture.png" class="profile-picture" />
+                </p>
+                <p class="name-surname">John Doe</p>
+            </div> <br> <br>
+            <p class="post-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum aspernatur vel est fugiat laboriosam odio voluptatibus iusto maiores tempore, nulla aperiam?
+                Culpa, nam doloribus est ex sint non fugiat labore. Lorem ipsum dolor sit amet consectetur adipisicing elit. </p> <br>
+            <p class="post-info likes">13 likes</p>
+            <p class="post-info comment">2 comments</p>
+        </div>
+    </div>
+
+    <br>
+    <div class="profiles-container flex-container" style="padding: 2%; padding-inline: 3%;">
+        <h2 style="margin: 1%; font-size: 24px; font-weight: 400;">Experience</h2>
+        <p style="font-weight: 300;">
+            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti
+            atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique
+            sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum
+            facilis est et expedita distinctio.
+        </p>
+    </div>
+
+    <br>
+    <div class="profiles-container flex-container" style="padding: 2%; padding-inline: 3%;">
+        <h2 style="margin: 1%; font-size: 24px; font-weight: 400;">Education</h2>
+        <p style="font-weight: 300;">
+            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti
+            atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique
+            sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum
+            facilis est et expedita distinctio.
+        </p>
+    </div>
+    
+    <br>
+    <div class="profiles-container flex-container" style="padding: 2%; padding-inline: 3%;">
+        <h2 style="margin: 1%; font-size: 24px; font-weight: 400;">Skills</h2>
+        <p style="font-weight: 300;">
+            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti
+            atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique
+            sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum
+            facilis est et expedita distinctio.
+        </p>
+    </div>
+
+    <br>
+    <div class="profiles-container flex-container" style="padding: 2%; padding-inline: 3%;">
+        <h2 style="margin: 1%; font-size: 24px; font-weight: 400;">Interests</h2>
+        <p style="font-weight: 300;">
+            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti
+            atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique
+            sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum
+            facilis est et expedita distinctio.
+        </p>
+    </div>
+    <br><br><br>
 </div>
