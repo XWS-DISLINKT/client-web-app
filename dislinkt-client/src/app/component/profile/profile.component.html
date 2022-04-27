@@ -23,7 +23,7 @@
 
             </div>
             <div class="flex-item-right">
-                <button mat-icon-button color="primary" aria-label="Example icon button with a heart icon"
+                <button mat-icon-button color="primary" *ngIf="!isProfileOwner"
                     style="float: right; padding-right: 90px;">
                     <mat-icon style="font-size: 34px; ">notifications</mat-icon>
                 </button>
@@ -32,7 +32,7 @@
                 <p>Phone number:<span style="font-weight: 300; margin-left: 5%;">+381625563743</span></p>
             </div>
             <div style="width: 100%;">
-                <div style="float: right; width: 250px;">
+                <div style="float: right; width: 250px;"  *ngIf="!isProfileOwner">
                     <button mat-flat-button color="primary"
                         style="margin-inline:5%; margin-bottom: 10%; margin-top: 5%; padding-inline: 10%;">Connect
                     </button>
@@ -48,6 +48,19 @@
                         </button>
                     </mat-menu>
                 </div>
+                <div style="float: right; width: 350px;"  *ngIf="isProfileOwner">
+                    <button mat-button [matMenuTriggerFor]="privacy">
+                        Private
+                    </button>
+                    <mat-menu #privacy="matMenu">
+                        <button mat-menu-item>
+                            <span>Set Public</span>
+                        </button>
+                    </mat-menu>
+                    <button mat-stroked-button color="primary"
+                        style="margin-inline:5%; margin-bottom: 10%; margin-top: 5%; padding-inline: 10%;">Add Profile Section
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -55,7 +68,12 @@
 
     <br>
     <div class="profiles-container flex-container" style="padding: 2%; padding-inline: 3%;">
-        <h2 style="margin: 1%; margin-inline: 1%; font-size: 24px; font-weight: 400;">About</h2>
+        <h2 style="margin: 1%; font-size: 24px; font-weight: 400; width:28%;">About</h2>
+        <div style="width:70%" *ngIf="isProfileOwner">
+            <button mat-icon-button color="primary" style="float: right; margin-inline:5%;padding-inline: 5%; margin-top:1%">
+                <mat-icon style="font-size: 30px; ">edit</mat-icon>
+            </button>
+        </div>
         <p style=" margin: 1%;font-weight: 300;">
             At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti
             atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique
@@ -67,7 +85,7 @@
     <br>
     <div class="profiles-container flex-container" style=" width:100%; padding: 2%; padding-inline: 3%;">
         <h2 style="margin: 1%; font-size: 24px; font-weight: 400; width:28%;">Activity</h2>
-        <div style="width:70%">
+        <div style="width:70%" >
             <button mat-stroked-button color="primary"
                 style="float: right; margin-inline:5%;padding-inline: 5%; margin-top:1%">Show All Posts
             </button>
@@ -92,11 +110,16 @@
 
     <br>
     <div class="profiles-container flex-container" style="padding: 2%; padding-inline: 3%;">
-        <h2 style="margin: 1%;  font-size: 24px; font-weight: 400;">Experience</h2>
+        <h2 style="margin: 1%; font-size: 24px; font-weight: 400; width:28%;">Experience</h2>
+        <div style="width:70%" *ngIf="isProfileOwner">
+            <button mat-icon-button color="primary" style="float: right; margin-inline:5%;padding-inline: 5%; margin-top:1%">
+                <mat-icon style="font-size: 34px; ">add</mat-icon>
+            </button>
+        </div>
         <div style="width: 100%;">
 
             <hr color="#c5c5c5" size="1" class="line">
-            <h3 style="margin: 0%; margin-inline: 1%;  font-size: 18px; font-weight: 400;">Android Developer </h3>
+            <h3 style="margin: 0%; margin-inline: 1%;  font-size: 18px; font-weight: 400;">Razvijač prednjeg dela</h3>
             <p style="font-size:16px ;font-weight: 300; margin-block: 0.5%; margin-inline: 1%;">Levi9, Serbia<span
                     style="margin-inline: 1%;"> &#183;</span> <span style=" font-weight: 300;">Full-time</span></p>
             <p style="font-weight: 300; margin-block: 0.5%; margin-inline: 1%;">2018 - present</p>
@@ -109,22 +132,34 @@
         </div>
     </div>
 
-    
+
     <br>
     <div class="profiles-container flex-container" style="padding: 2%; padding-inline: 3%;">
-        <h2 style="margin: 1%;  font-size: 24px; font-weight: 400;">Education</h2>
+        <h2 style="margin: 1%; font-size: 24px; font-weight: 400; width:28%;">Education</h2>
+        <div style="width:70%"  *ngIf="isProfileOwner">
+            <button mat-icon-button color="primary" style="float: right; margin-inline:5%;padding-inline: 5%; margin-top:1%">
+                <mat-icon style="font-size: 34px; ">add</mat-icon>
+            </button>
+        </div>
         <div style="width: 100%;">
 
             <hr color="#c5c5c5" size="1" class="line">
-            <h3 style="margin: 0%; margin-inline: 1%;  font-size: 18px; font-weight: 400;">Fakultet tehnickih nauka, Univesity of Novi Sad</h3>
-            <p style="font-size:16px ;font-weight: 300; margin-block: 0.5%; margin-inline: 1%;">Software Engineering, Bachelor's degree</p>
+            <h3 style="margin: 0%; margin-inline: 1%;  font-size: 18px; font-weight: 400;">Fakultet tehnickih nauka,
+                Univesity of Novi Sad</h3>
+            <p style="font-size:16px ;font-weight: 300; margin-block: 0.5%; margin-inline: 1%;">Software Engineering,
+                Bachelor's degree</p>
             <p style="font-weight: 300; margin-block: 0.5%; margin-inline: 1%;">2010 - 2015</p>
         </div>
     </div>
 
     <br>
     <div class="profiles-container flex-container" style="padding: 2%; padding-inline: 3%;">
-        <h2 style="margin: 1%;  font-size: 24px; font-weight: 400;">Skills</h2>
+        <h2 style="margin: 1%; font-size: 24px; font-weight: 400; width:28%;">Skills</h2>
+        <div style="width:70%" *ngIf="isProfileOwner">
+            <button mat-icon-button color="primary" style="float: right; margin-inline:5%;padding-inline: 5%; margin-top:1%">
+                <mat-icon style="font-size: 34px; ">add</mat-icon>
+            </button>
+        </div>
         <div style="width: 100%;">
 
             <hr color="#c5c5c5" size="1" class="line">
@@ -137,7 +172,8 @@
             <p style="font-size:16px ;font-weight: 300; margin-block: 0.5%; margin-inline: 1%;">Angular</p>
 
             <hr color="#c5c5c5" size="1" class="line">
-            <p style="font-size:16px ;font-weight: 300; margin-block: 0.5%; margin-inline: 1%;">Object Oriented Programming</p>
+            <p style="font-size:16px ;font-weight: 300; margin-block: 0.5%; margin-inline: 1%;">Object Oriented
+                Programming</p>
 
             <hr color="#c5c5c5" size="1" class="line">
             <p style="font-size:16px ;font-weight: 300; margin-block: 0.5%; margin-inline: 1%;">Golang</p>
@@ -146,16 +182,22 @@
 
     <br>
     <div class="profiles-container flex-container" style="padding: 2%; padding-inline: 3%;">
-        <h2 style="margin: 1%;  font-size: 24px; font-weight: 400;">Interests</h2>
+        <h2 style="margin: 1%; font-size: 24px; font-weight: 400; width:28%;">Interests</h2>
+        <div style="width:70%"  *ngIf="isProfileOwner">
+            <button mat-icon-button color="primary" style="float: right; margin-inline:5%;padding-inline: 5%; margin-top:1%">
+                <mat-icon style="font-size: 34px; ">add</mat-icon>
+            </button>
+        </div>
         <div style="width: 100%;">
 
             <hr color="#c5c5c5" size="1" class="line">
-            <p style="font-size:16px ;font-weight: 300; margin-block: 0.5%; margin-inline: 1%;">Artificial intelligence</p>
+            <p style="font-size:16px ;font-weight: 300; margin-block: 0.5%; margin-inline: 1%;">Artificial intelligence
+            </p>
 
             <hr color="#c5c5c5" size="1" class="line">
             <p style="font-size:16px ;font-weight: 300; margin-block: 0.5%; margin-inline: 1%;">Web Programming</p>
         </div>
     </div>
-    
+
     <br><br><br>
 </div>
