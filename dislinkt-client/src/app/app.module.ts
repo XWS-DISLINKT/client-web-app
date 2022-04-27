@@ -21,6 +21,7 @@ import { RegistrationComponent } from './component/registration/registration.com
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { FeedComponent } from './component/feed/feed.component';
 import { ProfilesComponent } from './component/profiles/profiles.component';
+import { ProfileComponent } from './component/profile/profile.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { ProfilesComponent } from './component/profiles/profiles.component';
     RegistrationComponent,
     NavbarComponent,
     FeedComponent,
-    ProfilesComponent
+    ProfilesComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
