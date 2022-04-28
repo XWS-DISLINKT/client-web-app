@@ -23,6 +23,7 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { FeedComponent } from './component/feed/feed.component';
 import { ProfilesComponent } from './component/profiles/profiles.component';
 import { ProfileComponent } from './component/profile/profile.component';
+import { ConnectionRequestsComponent } from './component/connection-requests/connection-requests.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { ProfileComponent } from './component/profile/profile.component';
     NavbarComponent,
     FeedComponent,
     ProfilesComponent,
-    ProfileComponent
+    ProfileComponent,
+    ConnectionRequestsComponent
   ],
   imports: [
     BrowserModule,
