@@ -26,6 +26,7 @@ import { ProfileComponent } from './component/profile/profile.component';
 import { AddExperienceComponent } from './modal/add-experience/add-experience.component';
 import { AddEducationComponent } from './modal/add-education/add-education.component';
 import { AddSkillComponent } from './modal/add-skill/add-skill.component';
+import { AddInterestComponent } from './modal/add-interest/add-interest.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { AddSkillComponent } from './modal/add-skill/add-skill.component';
     ProfileComponent,
     AddExperienceComponent,
     AddEducationComponent,
-    AddSkillComponent
+    AddSkillComponent,
+    AddInterestComponent
   ],
   imports: [
     BrowserModule,

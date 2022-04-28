@@ -157,7 +157,7 @@
         <h2 style="margin: 1%; font-size: 24px; font-weight: 400; width:28%;">Skills</h2>
         <div style="width:70%" *ngIf="isProfileOwner">
             <button mat-icon-button color="primary" style="float: right; margin-inline:5%;padding-inline: 5%; margin-top:1%">
-                <mat-icon style="font-size: 34px; ">add</mat-icon>
+                <mat-icon style="font-size: 34px; " (click)="openModalAddSkills()">add</mat-icon>
             </button>
         </div>
         <div style="width: 100%;">
@@ -185,7 +185,7 @@
         <h2 style="margin: 1%; font-size: 24px; font-weight: 400; width:28%;">Interests</h2>
         <div style="width:70%"  *ngIf="isProfileOwner">
             <button mat-icon-button color="primary" style="float: right; margin-inline:5%;padding-inline: 5%; margin-top:1%">
-                <mat-icon style="font-size: 34px; ">add</mat-icon>
+                <mat-icon style="font-size: 34px; " (click)="openModalAddInterests()">add</mat-icon>
             </button>
         </div>
         <div style="width: 100%;">
