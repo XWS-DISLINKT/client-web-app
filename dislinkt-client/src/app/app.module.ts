@@ -24,6 +24,7 @@ import { FeedComponent } from './component/feed/feed.component';
 import { ProfilesComponent } from './component/profiles/profiles.component';
 import { ProfileComponent } from './component/profile/profile.component';
 import { ConnectionRequestsComponent } from './component/connection-requests/connection-requests.component';
+import { ConnectionsComponent } from './component/connections/connections.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ConnectionRequestsComponent } from './component/connection-requests/con
     FeedComponent,
     ProfilesComponent,
     ProfileComponent,
-    ConnectionRequestsComponent
+    ConnectionRequestsComponent,
+    ConnectionsComponent
   ],
   imports: [
     BrowserModule,
