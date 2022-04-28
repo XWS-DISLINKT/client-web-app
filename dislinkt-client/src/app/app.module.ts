@@ -23,6 +23,9 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { FeedComponent } from './component/feed/feed.component';
 import { ProfilesComponent } from './component/profiles/profiles.component';
 import { ProfileComponent } from './component/profile/profile.component';
+import { AddExperienceComponent } from './modal/add-experience/add-experience.component';
+import { AddEducationComponent } from './modal/add-education/add-education.component';
+import { AddSkillComponent } from './modal/add-skill/add-skill.component';
 
 
 @NgModule({
@@ -33,7 +36,10 @@ import { ProfileComponent } from './component/profile/profile.component';
     NavbarComponent,
     FeedComponent,
     ProfilesComponent,
-    ProfileComponent
+    ProfileComponent,
+    AddExperienceComponent,
+    AddEducationComponent,
+    AddSkillComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +58,7 @@ import { ProfileComponent } from './component/profile/profile.component';
     MatDividerModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AddExperienceComponent]
 })
 export class AppModule { }
