@@ -5,9 +5,10 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './add-interest.component.html',
   styleUrls: ['./add-interest.component.css']
 })
+
 export class AddInterestComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
   }
