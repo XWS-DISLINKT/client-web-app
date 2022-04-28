@@ -32,7 +32,7 @@
                 <p>Phone number:<span style="font-weight: 300; margin-left: 5%;">+381625563743</span></p>
             </div>
             <div style="width: 100%;">
-                <div style="float: right; width: 250px;"  *ngIf="!isProfileOwner">
+                <div style="float: right; width: 250px;" *ngIf="!isProfileOwner">
                     <button mat-flat-button color="primary"
                         style="margin-inline:5%; margin-bottom: 10%; margin-top: 5%; padding-inline: 10%;">Connect
                     </button>
@@ -48,7 +48,7 @@
                         </button>
                     </mat-menu>
                 </div>
-                <div style="float: right; width: 350px;"  *ngIf="isProfileOwner">
+                <div style="float: right; width: 350px;" *ngIf="isProfileOwner">
                     <button mat-button [matMenuTriggerFor]="privacy">
                         Private
                     </button>
@@ -58,7 +58,8 @@
                         </button>
                     </mat-menu>
                     <button mat-stroked-button color="primary"
-                        style="margin-inline:5%; margin-bottom: 10%; margin-top: 5%; padding-inline: 10%;">Add Profile Section
+                        style="margin-inline:5%; margin-bottom: 10%; margin-top: 5%; padding-inline: 10%;">Add Profile
+                        Section
                     </button>
                 </div>
             </div>
@@ -70,8 +71,9 @@
     <div class="profiles-container flex-container" style="padding: 2%; padding-inline: 3%;">
         <h2 style="margin: 1%; font-size: 24px; font-weight: 400; width:28%;">About</h2>
         <div style="width:70%" *ngIf="isProfileOwner">
-            <button mat-icon-button color="primary" style="float: right; margin-inline:5%;padding-inline: 5%; margin-top:1%">
-                <mat-icon style="font-size: 30px; ">edit</mat-icon>
+            <button mat-icon-button color="primary"
+                style="float: right; margin-inline:5%;padding-inline: 5%; margin-top:1%">
+                <mat-icon style="font-size: 28px; ">edit</mat-icon>
             </button>
         </div>
         <p style=" margin: 1%;font-weight: 300;">
@@ -85,7 +87,7 @@
     <br>
     <div class="profiles-container flex-container" style=" width:100%; padding: 2%; padding-inline: 3%;">
         <h2 style="margin: 1%; font-size: 24px; font-weight: 400; width:28%;">Activity</h2>
-        <div style="width:70%" >
+        <div style="width:70%">
             <button mat-stroked-button color="primary"
                 style="float: right; margin-inline:5%;padding-inline: 5%; margin-top:1%">Show All Posts
             </button>
@@ -112,23 +114,41 @@
     <div class="profiles-container flex-container" style="padding: 2%; padding-inline: 3%;">
         <h2 style="margin: 1%; font-size: 24px; font-weight: 400; width:28%;">Experience</h2>
         <div style="width:70%" *ngIf="isProfileOwner">
-            <button mat-icon-button color="primary" style="float: right; margin-inline:5%;padding-inline: 5%; margin-top:1%">
+            <button mat-icon-button color="primary"
+                style="float: right; margin-inline:5%;padding-inline: 5%; margin-top:1%">
                 <mat-icon style="font-size: 34px; " (click)="openModalAddExperience()">add</mat-icon>
             </button>
         </div>
-        <div style="width: 100%;">
-
+        <div style="width: 100%;" class="flex-container">
             <hr color="#c5c5c5" size="1" class="line">
-            <h3 style="margin: 0%; margin-inline: 1%;  font-size: 18px; font-weight: 400;">Razvijač prednjeg dela</h3>
-            <p style="font-size:16px ;font-weight: 300; margin-block: 0.5%; margin-inline: 1%;">Levi9, Serbia<span
-                    style="margin-inline: 1%;"> &#183;</span> <span style=" font-weight: 300;">Full-time</span></p>
-            <p style="font-weight: 300; margin-block: 0.5%; margin-inline: 1%;">2018 - present</p>
-
+            <div class="flex-item-left1">
+                <h3 style="margin: 0%; margin-inline: 1%;  font-size: 18px; font-weight: 400;">Razvijač prednjeg dela
+                </h3>
+                <p style="font-size:16px ;font-weight: 300; margin-block: 0.5%; margin-inline: 1%;">Levi9, Serbia<span
+                        style="margin-inline: 1%;"> &#183;</span> <span style=" font-weight: 300;">Full-time</span></p>
+                <p style="font-weight: 300; margin-block: 0.5%; margin-inline: 1%;">2018 - present</p>
+            </div>
+            <div class="flex-item-right1"  *ngIf="isProfileOwner">
+                <button mat-icon-button color="primary"
+                    style="float: right; margin-inline:25%; padding-inline: 5%; margin-top:1%">
+                    <mat-icon style="font-size: 28px;" (click)="openModalAddSkills()">edit</mat-icon>
+                </button>
+            </div>
+        </div>
+        <div style="width: 100%;" class="flex-container">
             <hr color="#c5c5c5" size="1" class="line">
-            <h3 style="margin: 0%; margin-inline: 1%;  font-size: 18px; font-weight: 400;">Java Developer </h3>
-            <p style="font-size:16px ;font-weight: 300; margin-block: 0.5%; margin-inline: 1%;">Levi9, Serbia<span
-                    style="margin-inline: 1%;"> &#183;</span> <span style=" font-weight: 300;">Full-time</span></p>
-            <p style="font-weight: 300; margin-block: 0.5%; margin-inline: 1%;">2015 - 2018</p>
+            <div class="flex-item-left1">
+                <h3 style="margin: 0%; margin-inline: 1%;  font-size: 18px; font-weight: 400;">Java Developer </h3>
+                <p style="font-size:16px ;font-weight: 300; margin-block: 0.5%; margin-inline: 1%;">Levi9, Serbia<span
+                        style="margin-inline: 1%;"> &#183;</span> <span style=" font-weight: 300;">Full-time</span></p>
+                <p style="font-weight: 300; margin-block: 0.5%; margin-inline: 1%;">2015 - 2018</p>
+            </div>
+            <div class="flex-item-right1"  *ngIf="isProfileOwner">
+                <button mat-icon-button color="primary"
+                    style="float: right; margin-inline:25%; padding-inline: 5%; margin-top:1%">
+                    <mat-icon style="font-size: 28px;" (click)="openModalAddSkills()">edit</mat-icon>
+                </button>
+            </div>
         </div>
     </div>
 
@@ -136,19 +156,28 @@
     <br>
     <div class="profiles-container flex-container" style="padding: 2%; padding-inline: 3%;">
         <h2 style="margin: 1%; font-size: 24px; font-weight: 400; width:28%;">Education</h2>
-        <div style="width:70%"  *ngIf="isProfileOwner">
-            <button mat-icon-button color="primary" style="float: right; margin-inline:5%;padding-inline: 5%; margin-top:1%">
+        <div style="width:70%" *ngIf="isProfileOwner">
+            <button mat-icon-button color="primary"
+                style="float: right; margin-inline:5%;padding-inline: 5%; margin-top:1%">
                 <mat-icon style="font-size: 34px; " (click)="openModalAddEducation()">add</mat-icon>
             </button>
         </div>
-        <div style="width: 100%;">
-
+        <div style="width: 100%;" class="flex-container">
             <hr color="#c5c5c5" size="1" class="line">
-            <h3 style="margin: 0%; margin-inline: 1%;  font-size: 18px; font-weight: 400;">Fakultet tehnickih nauka,
-                Univesity of Novi Sad</h3>
-            <p style="font-size:16px ;font-weight: 300; margin-block: 0.5%; margin-inline: 1%;">Software Engineering,
-                Bachelor's degree</p>
-            <p style="font-weight: 300; margin-block: 0.5%; margin-inline: 1%;">2010 - 2015</p>
+            <div class="flex-item-left1">
+                <h3 style="margin: 0%; margin-inline: 1%;  font-size: 18px; font-weight: 400;">Fakultet tehnickih nauka,
+                    Univesity of Novi Sad</h3>
+                <p style="font-size:16px ;font-weight: 300; margin-block: 0.5%; margin-inline: 1%;">
+                    Software Engineering, Bachelor's degree </p>
+                <p style="font-weight: 300; margin-block: 0.5%; margin-inline: 1%;">
+                    2010 - 2015 </p>
+            </div>
+            <div class="flex-item-right1"  *ngIf="isProfileOwner">
+                <button mat-icon-button color="primary"
+                    style="float: right; margin-inline:25%; padding-inline: 5%; margin-top:1%">
+                    <mat-icon style="font-size: 28px;" (click)="openModalAddSkills()">edit</mat-icon>
+                </button>
+            </div>
         </div>
     </div>
 
@@ -156,8 +185,9 @@
     <div class="profiles-container flex-container" style="padding: 2%; padding-inline: 3%;">
         <h2 style="margin: 1%; font-size: 24px; font-weight: 400; width:28%;">Skills</h2>
         <div style="width:70%" *ngIf="isProfileOwner">
-            <button mat-icon-button color="primary" style="float: right; margin-inline:5%;padding-inline: 5%; margin-top:1%">
-                <mat-icon style="font-size: 34px; " (click)="openModalAddSkills()">add</mat-icon>
+            <button mat-icon-button color="primary"
+                style="float: right; margin-inline:5%;padding-inline: 5%; margin-top:1%">
+                <mat-icon style="font-size: 28px; " (click)="openModalAddSkills()">edit</mat-icon>
             </button>
         </div>
         <div style="width: 100%;">
@@ -183,9 +213,10 @@
     <br>
     <div class="profiles-container flex-container" style="padding: 2%; padding-inline: 3%;">
         <h2 style="margin: 1%; font-size: 24px; font-weight: 400; width:28%;">Interests</h2>
-        <div style="width:70%"  *ngIf="isProfileOwner">
-            <button mat-icon-button color="primary" style="float: right; margin-inline:5%;padding-inline: 5%; margin-top:1%">
-                <mat-icon style="font-size: 34px; " (click)="openModalAddInterests()">add</mat-icon>
+        <div style="width:70%" *ngIf="isProfileOwner">
+            <button mat-icon-button color="primary"
+                style="float: right; margin-inline:5%;padding-inline: 5%; margin-top:1%">
+                <mat-icon style="font-size: 28px; " (click)="openModalAddInterests()">edit</mat-icon>
             </button>
         </div>
         <div style="width: 100%;">
