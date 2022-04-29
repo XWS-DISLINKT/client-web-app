@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class FeedComponent implements OnInit {
 
   public canComment: boolean = false;
+  public isProfileOwner: boolean = true;
 
   constructor() { }
 

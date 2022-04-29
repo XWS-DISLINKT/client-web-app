@@ -9,9 +9,10 @@
 .feed-input-container {
     background-color: white;
     padding: 10px;
-    padding-bottom: 5px;
+    padding-bottom: 2px;
     border-radius: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
+    box-shadow: 2px 2px 10px #e6e6e6;
 }
 
 .feed-input {
@@ -27,6 +28,7 @@
     width: 95%;
     margin: auto;
     padding: auto;
+    margin-bottom: 10px;
 }
 
 .feed-input > form {

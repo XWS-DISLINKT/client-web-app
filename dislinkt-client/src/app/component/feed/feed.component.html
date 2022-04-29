@@ -1,5 +1,13 @@
-<div class="feed">
+<div class="feed"><!-- 
     <div class="feed-input-container">
+        <div>
+            <h2 style="font-size:24px; font-weight: 200; margin-top: 8px; margin-inline: 15px;">John Doe's Posts</h2>
+        </div>
+    </div> -->
+    
+    <h2 style="font-size:24px; font-weight: 200; margin-inline: 15px; margin-top: 12px;" *ngIf="!isProfileOwner">John Doe's Posts</h2>
+
+    <div class="feed-input-container" *ngIf="isProfileOwner">
         <div class="feed-input">
           <form>
             <mat-icon aria-hidden="false">create</mat-icon>
@@ -13,7 +21,8 @@
                 <h4>Photo</h4>
             </div>
         </div>
-    </div> <br><br>
+    </div> <br>
+    
     <div class="feed-input-container">
         <div class="picture-name">
             <p class="profile-pic">
