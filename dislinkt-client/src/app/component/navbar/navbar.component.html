@@ -14,9 +14,9 @@ box-shadow: 2px 2px 10px #e6e6e6;" >
         <button mat-menu-item style="padding-inline: 12%;" [routerLink]="['/requests']" > Requests</button>
         <button mat-menu-item style="padding-inline: 12%;"> Suggestions</button>
     </mat-menu>
-    <button *ngIf="isAuthenticated" mat-button>Jobs</button>
-    <button *ngIf="isAuthenticated" mat-button>Messaging</button>
-    <button *ngIf="isAuthenticated" mat-button>My profile</button>
+    <button *ngIf="isAuthenticated" mat-button [routerLink]="['']">Jobs</button>
+    <button *ngIf="isAuthenticated" mat-button [routerLink]="['']">Messaging</button>
+    <button *ngIf="isAuthenticated" mat-button [routerLink]="['/profile/id']">My profile</button>
     
     <button *ngIf="!isAuthenticated" mat-button  [routerLink]="['/profiles']" >Profiles</button>
     <span class="example-spacer"></span>

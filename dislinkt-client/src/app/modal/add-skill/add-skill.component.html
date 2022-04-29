@@ -1,0 +1,43 @@
+<div class="profiles-container flex-container" style="padding: 2%; padding-inline: 3%;">
+    <h2 style="margin: 1%; font-size: 24px; font-weight: 400; width:100%;">Add skills</h2>
+    <div style="width: 100%;">
+        <hr color="#c5c5c5" size="1" class="line"> <br>
+        <mat-card-content style="margin-left: 1%; margin-right: 1%;">
+            <br>
+            <p>
+                <mat-form-field class="example-chip-list" appearance="fill">
+                    <mat-label> Skills </mat-label>
+                    <mat-chip-list #chipList aria-label="Skills selection">
+                      <mat-chip
+                        *ngFor="let skill of skills"
+                        (removed)="remove(skill)">
+                        {{skill}}
+                        <button matChipRemove>
+                          <mat-icon>cancel</mat-icon>
+                        </button>
+                      </mat-chip>
+                      <input
+                        placeholder="New skill..."
+                        #skillInput
+                        [formControl]="skillCtrl"
+                        [matAutocomplete]="auto"
+                        [matChipInputFor]="chipList"
+                        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                        (matChipInputTokenEnd)="add($event)">
+                    </mat-chip-list>
+                    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                      <mat-option *ngFor="let skill of filteredSkills | async" [value]="skill">
+                        {{skill}}
+                      </mat-option>
+                    </mat-autocomplete>
+                  </mat-form-field>
+            </p>
+            <br>
+            <div style="text-align: center; float: right;">
+                <button mat-raised-button color="primary" >
+                    Save
+                </button>
+            </div>
+        </mat-card-content>
+    </div>
+</div>

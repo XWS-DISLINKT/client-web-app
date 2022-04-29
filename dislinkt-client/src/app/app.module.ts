@@ -1,10 +1,8 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ViewChild } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -16,7 +14,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
-
 import { LoginComponent } from './component/login/login.component';
 import { RegistrationComponent } from './component/registration/registration.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
@@ -25,6 +22,13 @@ import { ProfilesComponent } from './component/profiles/profiles.component';
 import { ProfileComponent } from './component/profile/profile.component';
 import { ConnectionRequestsComponent } from './component/connection-requests/connection-requests.component';
 import { ConnectionsComponent } from './component/connections/connections.component';
+import { AddExperienceComponent } from './modal/add-experience/add-experience.component';
+import { AddEducationComponent } from './modal/add-education/add-education.component';
+import { AddSkillComponent } from './modal/add-skill/add-skill.component';
+import { AddInterestComponent } from './modal/add-interest/add-interest.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatChipsModule } from '@angular/material/chips';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -37,7 +41,11 @@ import { ConnectionsComponent } from './component/connections/connections.compon
     ProfilesComponent,
     ProfileComponent,
     ConnectionRequestsComponent,
-    ConnectionsComponent
+    ConnectionsComponent,
+    AddExperienceComponent,
+    AddEducationComponent,
+    AddSkillComponent,
+    AddInterestComponent
   ],
   imports: [
     BrowserModule,
@@ -53,9 +61,14 @@ import { ConnectionsComponent } from './component/connections/connections.compon
     MatIconModule,
     MatSelectModule,
     MatMenuModule,
-    MatDividerModule
+    MatDividerModule,
+    MatAutocompleteModule,
+    MatChipsModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AddExperienceComponent]
 })
 export class AppModule { }
