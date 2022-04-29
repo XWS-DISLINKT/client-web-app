@@ -5,10 +5,32 @@
         <mat-card-content style="margin-left: 1%; margin-right: 1%;">
             <br>
             <p>
-                <mat-form-field appearance="legacy" style="width: 100%;">
-                    <mat-label>Name</mat-label>
-                    <input type="text" matInput placeholder="Name" required>
-                </mat-form-field>
+                <mat-form-field class="example-chip-list" appearance="fill">
+                    <mat-label> Interests </mat-label>
+                    <mat-chip-list #chipList aria-label="Interests selection">
+                      <mat-chip
+                        *ngFor="let interest of interests"
+                        (removed)="remove(interest)">
+                        {{interest}}
+                        <button matChipRemove>
+                          <mat-icon>cancel</mat-icon>
+                        </button>
+                      </mat-chip>
+                      <input
+                        placeholder="New interest..."
+                        #interestInput
+                        [formControl]="interestCtrl"
+                        [matAutocomplete]="auto"
+                        [matChipInputFor]="chipList"
+                        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                        (matChipInputTokenEnd)="add($event)">
+                    </mat-chip-list>
+                    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                      <mat-option *ngFor="let interest of filteredInterests | async" [value]="interest">
+                        {{interest}}
+                      </mat-option>
+                    </mat-autocomplete>
+                  </mat-form-field>
             </p>
             <br>
             <div style="text-align: center; float: right;">

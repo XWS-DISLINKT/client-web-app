@@ -40,7 +40,7 @@ export class ProfileComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.id = "add-skills-modal";
-    dialogConfig.height = "50%";
+    dialogConfig.height = "35%";
     dialogConfig.width = "32%";
     const modalDialog = this.matDialog.open(AddSkillComponent, dialogConfig);
   }
@@ -49,7 +49,7 @@ export class ProfileComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.id = "add-interests-modal";
-    dialogConfig.height = "50%";
+    dialogConfig.height = "35%";
     dialogConfig.width = "32%";
     const modalDialog = this.matDialog.open(AddInterestComponent, dialogConfig);
   }

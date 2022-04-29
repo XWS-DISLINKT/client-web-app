@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ViewChild } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -27,6 +27,9 @@ import { AddExperienceComponent } from './modal/add-experience/add-experience.co
 import { AddEducationComponent } from './modal/add-education/add-education.component';
 import { AddSkillComponent } from './modal/add-skill/add-skill.component';
 import { AddInterestComponent } from './modal/add-interest/add-interest.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatChipsModule } from '@angular/material/chips';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -57,7 +60,11 @@ import { AddInterestComponent } from './modal/add-interest/add-interest.componen
     MatIconModule,
     MatSelectModule,
     MatMenuModule,
-    MatDividerModule
+    MatDividerModule,
+    MatAutocompleteModule,
+    MatChipsModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
