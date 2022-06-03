@@ -14,18 +14,18 @@
               <p>
                     <mat-form-field appearance="legacy" style="width: 100%;">
                         <mat-label>Username</mat-label>
-                        <input type="text" matInput placeholder="username">
+                        <input type="text" matInput placeholder="username" [(ngModel)]="loginDTO.username">
                     </mat-form-field>
                 </p>
                 <p>
                     <mat-form-field appearance="legacy" style="width: 100%;">
                         <mat-label>Password</mat-label>
-                        <input type="password" matInput placeholder="password">
+                        <input type="password" matInput placeholder="password" [(ngModel)]="loginDTO.password">
                     </mat-form-field>
                 </p>
                 <br>
                 <div style="text-align: center;">
-                    <button mat-raised-button color="primary">
+                    <button mat-raised-button color="primary" (click)="login()">
                         Log In
                     </button>
                     <br>
