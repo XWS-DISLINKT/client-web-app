@@ -20,7 +20,7 @@ box-shadow: 2px 2px 10px #e6e6e6;" >
     
     <button *ngIf="!isAuthenticated" mat-button  [routerLink]="['/profiles']" >Profiles</button>
     <span class="example-spacer"></span>
-    <button *ngIf="isAuthenticated" mat-button>Sign Out</button>
+    <button *ngIf="isAuthenticated" mat-button (click)="signOut()">Sign Out</button>
     
     <button *ngIf="!isAuthenticated" mat-button [routerLink]="['/registration']" >Register</button>
     <button *ngIf="!isAuthenticated" mat-stroked-button  [routerLink]="['/login']"  color="primary">Sign In</button>

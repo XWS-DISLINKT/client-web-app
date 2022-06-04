@@ -15,9 +15,44 @@
     <!-- <h1 style="font-size:30px; font-weight: 200; margin-top: 5%; margin-bottom: 1.5%;">No results.</h1> -->
 
     <div class="profiles-container">
-        <h2 style="font-size:20px; font-weight: 200; padding-inline: 2%; padding-top: 2%;">144 Results</h2>
+        <h2 style="font-size:20px; font-weight: 200; padding-inline: 2%; padding-top: 2%;">{{results}} Results</h2>
 
         <hr color="#c5c5c5" size="1" style="width: 97%;">
+        <div class="flex-container" *ngFor="let profile of profiles">
+            <div class="flex-item-left profile-picture">
+                <img src="../../../assets/images/profile.jpg" class="profile-picture" />
+            </div>
+            <div class="flex-item-center">
+                <p style="font-size: large; font-weight: 400;">{{profile.name}} {{profile.lastName}}</p>
+                <p style="margin-block: 0.5%;">Job title</p>
+                <p style="margin-block: 0.5%;">Location</p>
+                <p style="margin-block: 0.5%;">17 shared connections</p>
+            </div>
+            <div class="flex-item-right">
+                <button mat-flat-button color="primary" style="margin: 2%;"> View full profile </button>
+                <button mat-stroked-button color="primary" style="margin: 2%;">Connect </button>
+            </div>
+            <hr color="#c5c5c5" size="1" style="width: 97%;">
+        </div>
+
+        
+        <!--<div class="flex-container">
+            <div class="flex-item-left profile-picture">
+                <img src="../../../assets/images/profile.jpg" class="profile-picture" />
+            </div>
+            <div class="flex-item-center">
+                <p style="font-size: large; font-weight: 400;">Name Surname</p>
+                <p style="margin-block: 0.5%;">Job title</p>
+                <p style="margin-block: 0.5%;">Location</p>
+                <p style="margin-block: 0.5%;">17 shared connections</p>
+            </div>
+            <div class="flex-item-right">
+                <button mat-flat-button color="primary" style="margin: 2%;"> View full profile </button>
+                <button mat-stroked-button color="primary" style="margin: 2%;">Connect </button>
+            </div>
+        </div> -->
+
+       <!-- <hr color="#c5c5c5" size="1" style="width: 97%;">
         <div class="flex-container">
             <div class="flex-item-left profile-picture">
                 <img src="../../../assets/images/profile.jpg" class="profile-picture" />
@@ -32,9 +67,9 @@
                 <button mat-flat-button color="primary" style="margin: 2%;"> View full profile </button>
                 <button mat-stroked-button color="primary" style="margin: 2%;">Connect </button>
             </div>
-        </div>
+        </div> -->
 
-        <hr color="#c5c5c5" size="1" style="width: 97%;">
+     <!--   <hr color="#c5c5c5" size="1" style="width: 97%;">
         <div class="flex-container">
             <div class="flex-item-left profile-picture">
                 <img src="../../../assets/images/profile.jpg" class="profile-picture" />
@@ -49,41 +84,7 @@
                 <button mat-flat-button color="primary" style="margin: 2%;"> View full profile </button>
                 <button mat-stroked-button color="primary" style="margin: 2%;">Connect </button>
             </div>
-        </div>
-
-        <hr color="#c5c5c5" size="1" style="width: 97%;">
-        <div class="flex-container">
-            <div class="flex-item-left profile-picture">
-                <img src="../../../assets/images/profile.jpg" class="profile-picture" />
-            </div>
-            <div class="flex-item-center">
-                <p style="font-size: large; font-weight: 400;">Name Surname</p>
-                <p style="margin-block: 0.5%;">Job title</p>
-                <p style="margin-block: 0.5%;">Location</p>
-                <p style="margin-block: 0.5%;">17 shared connections</p>
-            </div>
-            <div class="flex-item-right">
-                <button mat-flat-button color="primary" style="margin: 2%;"> View full profile </button>
-                <button mat-stroked-button color="primary" style="margin: 2%;">Connect </button>
-            </div>
-        </div>
-
-        <hr color="#c5c5c5" size="1" style="width: 97%;">
-        <div class="flex-container">
-            <div class="flex-item-left profile-picture">
-                <img src="../../../assets/images/profile.jpg" class="profile-picture" />
-            </div>
-            <div class="flex-item-center">
-                <p style="font-size: large; font-weight: 400;">Name Surname</p>
-                <p style="margin-block: 0.5%;">Job title</p>
-                <p style="margin-block: 0.5%;">Location</p>
-                <p style="margin-block: 0.5%;">17 shared connections</p>
-            </div>
-            <div class="flex-item-right">
-                <button mat-flat-button color="primary" style="margin: 2%;"> View full profile </button>
-                <button mat-stroked-button color="primary" style="margin: 2%;">Connect </button>
-            </div>
-        </div>
+        </div> -->
     </div>
     <br>
 </div>
