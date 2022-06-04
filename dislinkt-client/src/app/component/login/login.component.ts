@@ -26,8 +26,7 @@ export class LoginComponent implements OnInit {
   login(): void {
     this._authenticationService.login(this.loginDTO).subscribe(
       response => {
-        console.log(document.cookie);
-        console.log(getCookie("token"));
+        localStorage.setItem("loggedId", response.id);
         this._router.navigate(['/feed'])
         setTimeout(() => {
           window.location.reload();

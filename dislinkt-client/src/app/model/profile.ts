@@ -1,11 +1,16 @@
+import { Education } from "./education";
+import { Experience } from "./experience";
+
 export interface Profile {
     id: string;
     name: string;
     lastName: string;
     email: string;
     username: string;
-    password: string;
+    biography: string;
     isPrivate: boolean;
-    education: [];
-    skills: [];
+    education: Education[];
+    skills: string[];
+    interests: string[];
+    experience: Experience[];
 }

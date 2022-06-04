@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
 import { AddEducationComponent } from 'src/app/modal/add-education/add-education.component';
 import { AddExperienceComponent } from 'src/app/modal/add-experience/add-experience.component';
 import { AddInterestComponent } from 'src/app/modal/add-interest/add-interest.component';
 import { AddSkillComponent } from 'src/app/modal/add-skill/add-skill.component';
+import { Education } from 'src/app/model/education';
+import { Profile } from 'src/app/model/profile';
+import { ProfileService } from 'src/app/service/profile-service/profile.service';
 
 @Component({
   selector: 'app-profile',
@@ -11,11 +15,43 @@ import { AddSkillComponent } from 'src/app/modal/add-skill/add-skill.component';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  isProfileOwner = true;
+  private id: any;
+  private routes: any;
+  isProfileOwner = false; 
+  profile: Profile = {
+    id: "",
+    name: "",
+    lastName: "",
+    email: "",
+    username: "",
+    biography: "",
+    isPrivate: false,
+    education: [],
+    skills: [],
+    interests: [],
+    experience: []
+  }
 
-  constructor(public matDialog: MatDialog) { }
+  constructor(public matDialog: MatDialog,
+              private _route: ActivatedRoute,
+              private _profileService: ProfileService) { }
 
   ngOnInit(): void {
+    this.id = this._route.snapshot.url[1].path;
+    this. isProfileOwner = this.checkIfIsOwner(this.id);
+    this.getProfile(this.id);      
+  }
+
+  getProfile(id: string): void {
+    this._profileService.getProfile(id).subscribe(
+      response => {
+        this.profile = response;
+      }
+    )
+  }
+
+  checkIfIsOwner(id: string): boolean {
+    return id === localStorage.getItem("loggedId") ? true : false;
   }
 
   openModalAddExperience(): void {

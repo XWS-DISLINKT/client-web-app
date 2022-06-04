@@ -19,4 +19,8 @@ export class ProfileService {
   searchProfiles(param: string): Observable<any> {
     return this._http.get<any>(this.applicationURL + "/profile/search/" + param);
   }
+
+  getProfile(id: string): Observable<any> {
+    return this._http.get<any>(this.applicationURL + "/profile/" + id);
+  }
 }
