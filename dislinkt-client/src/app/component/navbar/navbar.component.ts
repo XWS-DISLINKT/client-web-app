@@ -18,9 +18,10 @@ export class NavbarComponent implements OnInit {
 
   signOut(): void {
     document.cookie = "token= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+    localStorage.removeItem("loggedId");
     setTimeout(() => {
       window.location.reload();
-    }, 200);
+    }, 1000);
   }
 
   openProfile(): void {

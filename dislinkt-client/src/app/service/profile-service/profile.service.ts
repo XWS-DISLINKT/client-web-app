@@ -7,7 +7,6 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ProfileService {
-
   private applicationURL = environment.applicationURL;
   
   constructor(private _http: HttpClient) { }

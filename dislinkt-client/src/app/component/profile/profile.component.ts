@@ -5,8 +5,9 @@ import { AddEducationComponent } from 'src/app/modal/add-education/add-education
 import { AddExperienceComponent } from 'src/app/modal/add-experience/add-experience.component';
 import { AddInterestComponent } from 'src/app/modal/add-interest/add-interest.component';
 import { AddSkillComponent } from 'src/app/modal/add-skill/add-skill.component';
-import { Education } from 'src/app/model/education';
+import { Post } from 'src/app/model/post';
 import { Profile } from 'src/app/model/profile';
+import { PostService } from 'src/app/service/post-service/post.service';
 import { ProfileService } from 'src/app/service/profile-service/profile.service';
 
 @Component({
@@ -32,14 +33,18 @@ export class ProfileComponent implements OnInit {
     experience: []
   }
 
+  posts: Post[] = [];
+
   constructor(public matDialog: MatDialog,
               private _route: ActivatedRoute,
-              private _profileService: ProfileService) { }
+              private _profileService: ProfileService,
+              private _postService: PostService) { }
 
   ngOnInit(): void {
     this.id = this._route.snapshot.url[1].path;
     this. isProfileOwner = this.checkIfIsOwner(this.id);
-    this.getProfile(this.id);      
+    this.getProfile(this.id);
+    this.getUserPosts(this.id);      
   }
 
   getProfile(id: string): void {
@@ -52,6 +57,44 @@ export class ProfileComponent implements OnInit {
 
   checkIfIsOwner(id: string): boolean {
     return id === localStorage.getItem("loggedId") ? true : false;
+  }
+
+  getUserPosts(userId: string): void {
+    this._postService.getPostsByUser(userId).subscribe(
+      response => {
+        this.posts = response.posts;
+        for (let i = 0; i < response.posts.length; i++) {
+          response.posts[i].numberOfComments = this.getNumberOfCommentsForPost(response.posts[i].id);
+          response.posts[i].numberOfLikes = this.getNumberOfLikesForPost(response.posts[i].id);
+        }
+      }
+    )
+  }
+
+  getNumberOfCommentsForPost(postId: string): number {
+    var number = 2;
+    this._postService.getAllCommentsByPost(postId).subscribe(
+      response => {
+        number = response.length;
+      },
+      error => { number = 0; }
+    )
+    return number;
+  }
+
+  getNumberOfLikesForPost(postId: string): number {
+    var number = 0;
+    this._postService.getAllReactionsByPost(postId).subscribe(
+      response => {
+        for (let i = 0; i < response.length; i++) {
+          if (response[i].reaction === 'like') {
+            number += 1;
+          }
+        }
+      },
+      error => { number = 0; }
+    )
+    return number;
   }
 
   openModalAddExperience(): void {

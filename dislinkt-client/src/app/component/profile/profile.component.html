@@ -89,22 +89,21 @@
                 style="float: right; margin-inline:5%;padding-inline: 5%; margin-top:1%">Show All Posts
             </button>
         </div>
-
         <hr color="#c5c5c5" size="1" class="line">
-        <div class="feed-input-container">
+        <div class="flex-container" style=" width:100%;" *ngFor="let post of posts">
+        
+        <div class="feed-input-container" >
             <div class="picture-name">
                 <p class="profile-pic">
                     <img src="../../../assets/images/profile-picture.png" class="profile-picture" />
                 </p>
-                <p class="name-surname">John Doe</p>
+                <p class="name-surname">{{profile.name}} {{profile.lastName}}</p>
             </div> <br> <br>
-            <p class="post-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum aspernatur vel est fugiat
-                laboriosam odio voluptatibus iusto maiores tempore, nulla aperiam?
-                Culpa, nam doloribus est ex sint non fugiat labore. Lorem ipsum dolor sit amet consectetur adipisicing
-                elit. </p> <br>
+            <p class="post-text">{{post.text}}</p> <br>
             <p class="post-info likes">13 likes</p>
-            <p class="post-info comment">2 comments</p>
+            <p class="post-info comment">{{post.numberOfComments}} comments</p>
         </div>
+    </div>
     </div>
 
     <br>
