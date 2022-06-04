@@ -3,6 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { LoginDTO } from 'src/app/dto/loginDTO';
 import { AuthenticationService } from 'src/app/service/authentication-service/authentication.service';
+import { getCookie } from 'src/app/service/authentication-service/auth-service';
 
 @Component({
   selector: 'app-login',
@@ -37,20 +38,4 @@ export class LoginComponent implements OnInit {
       }
     )
   }
-}
-
-function getCookie(cookieName: string) {
-  let name = cookieName + "=";
-  let decodedCookie = decodeURIComponent(document.cookie);
-  let ca = decodedCookie.split(';');
-  for(let i = 0; i <ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
 }
