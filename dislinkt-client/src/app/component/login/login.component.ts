@@ -10,7 +10,6 @@ import { AuthenticationService } from 'src/app/service/authentication-service/au
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
   public loginDTO: LoginDTO = {
     username: "",
     password: ""

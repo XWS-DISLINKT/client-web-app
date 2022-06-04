@@ -4,12 +4,12 @@
     <div class=" d-flex flex-row" style="margin-bottom: 2%;">
         <mat-form-field class="example-form-field" style="width: 50%; margin-right: 2%; margin-top: 3%;">
             <mat-label>Search</mat-label>
-            <input matInput>
-            <button *ngIf="searchText" matSuffix mat-icon-button aria-label="Clear" (click)="searchText=''">
+            <input matInput [(ngModel)]="searchText">
+            <button *ngIf="searchText" matSuffix mat-icon-button aria-label="Clear" (click)="undoSearch()">
                 <mat-icon>close</mat-icon>
             </button>
         </mat-form-field>
-        <button mat-raised-button style="width:12%; height: 35px; margin-top: 1%; ">Search</button>
+        <button mat-raised-button style="width:12%; height: 35px; margin-top: 1%; " (click)="searchProfiles()">Search</button>
     </div>
 
     <!-- <h1 style="font-size:30px; font-weight: 200; margin-top: 5%; margin-bottom: 1.5%;">No results.</h1> -->

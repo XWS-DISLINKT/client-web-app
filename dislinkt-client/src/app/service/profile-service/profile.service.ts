@@ -15,4 +15,8 @@ export class ProfileService {
   getPublicProfiles(): Observable<any> {
     return this._http.get<any>(this.applicationURL + "/profile");
   }
+
+  searchProfiles(param: string): Observable<any> {
+    return this._http.get<any>(this.applicationURL + "/profile/search/" + param);
+  }
 }

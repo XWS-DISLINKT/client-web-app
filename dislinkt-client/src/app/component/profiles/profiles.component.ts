@@ -15,7 +15,6 @@ export class ProfilesComponent implements OnInit {
   constructor(private _profileService: ProfileService) { }
 
   ngOnInit(): void {
-
     this.getPublicProfiles();
 
   }
@@ -27,6 +26,23 @@ export class ProfilesComponent implements OnInit {
         this.results = response.length;
       }
     )
+  }
+
+  searchProfiles(): void {
+    if (this.searchText === "") {
+      this.getPublicProfiles();
+    } else {
+      this._profileService.searchProfiles(this.searchText).subscribe(
+        response => {
+          this.profiles = response.profiles;
+        }
+      )
+    }
+  }
+
+  undoSearch(): void {
+    this.searchText = "";
+    this.getPublicProfiles();
   }
 
 }
