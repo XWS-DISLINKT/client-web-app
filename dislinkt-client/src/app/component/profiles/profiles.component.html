@@ -29,8 +29,8 @@
                 <p style="margin-block: 0.5%;">17 shared connections</p>
             </div>
             <div class="flex-item-right">
-                <button mat-flat-button color="primary" style="margin: 2%;"> View full profile </button>
-                <button mat-stroked-button color="primary" style="margin: 2%;">Connect </button>
+                <button mat-flat-button color="primary" style="margin: 2%;" (click)="viewFullProfile(profile.id)"> View full profile </button>
+                <button mat-stroked-button color="primary" style="margin: 2%;" *ngIf="isAuthenticated">Connect </button>
             </div>
             <hr color="#c5c5c5" size="1" style="width: 97%;">
         </div>

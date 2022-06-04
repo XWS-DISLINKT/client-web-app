@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Profile } from 'src/app/model/profile';
 import { ProfileService } from 'src/app/service/profile-service/profile.service';
+import { isLoggedIn } from 'src/app/service/authentication-service/auth-service';
+
+
 
 @Component({
   selector: 'app-profiles',
@@ -12,7 +16,8 @@ export class ProfilesComponent implements OnInit {
   public profiles: Profile[] = [];
   public results: number = 0;
 
-  constructor(private _profileService: ProfileService) { }
+  constructor(private _profileService: ProfileService,
+              public _router: Router) { }
 
   ngOnInit(): void {
     this.getPublicProfiles();
@@ -43,6 +48,10 @@ export class ProfilesComponent implements OnInit {
   undoSearch(): void {
     this.searchText = "";
     this.getPublicProfiles();
+  }
+
+  viewFullProfile(id: string): void {
+    this._router.navigate(['profile/' + id])
   }
 
 }

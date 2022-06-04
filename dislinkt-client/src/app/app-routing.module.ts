@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'registration', component: RegistrationComponent },
   { path: 'feed', component: FeedComponent },
   { path: 'profiles', component: ProfilesComponent },
-  { path: 'profile/id', component: ProfileComponent },
+  { path: 'profile/:id', component: ProfileComponent },
   { path: 'requests', component: ConnectionRequestsComponent },
   { path: 'connections', component: ConnectionsComponent },
 ];
