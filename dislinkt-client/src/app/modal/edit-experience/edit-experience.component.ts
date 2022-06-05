@@ -5,13 +5,13 @@ import { Profile } from 'src/app/model/profile';
 import { ProfileService } from 'src/app/service/profile-service/profile.service';
 
 @Component({
-  selector: 'app-add-experience',
-  templateUrl: './add-experience.component.html',
-  styleUrls: ['./add-experience.component.css']
+  selector: 'app-edit-experience',
+  templateUrl: './edit-experience.component.html',
+  styleUrls: ['./edit-experience.component.css']
 })
-export class AddExperienceComponent implements OnInit {
+export class EditExperienceComponent implements OnInit {
   private id: any;
-
+  
   profile: Profile = {
     id: "",
     name: "",
@@ -33,9 +33,12 @@ export class AddExperienceComponent implements OnInit {
     description: ""
   }
 
-  constructor(private _profileService: ProfileService) {
-
-   }
+  constructor(private _profileService: ProfileService,
+              private _dialogRef: MatDialogRef<EditExperienceComponent>,
+              @Inject(MAT_DIALOG_DATA) data) { 
+                
+                this.experience = data;
+              }
 
   ngOnInit(): void {
     this.id = localStorage.getItem("loggedId");
@@ -50,16 +53,24 @@ export class AddExperienceComponent implements OnInit {
     )
   }
 
-  addExperience(): void {
-    this.profile.experience.push(this.experience);
+  updateExperience(): void {
+    for (let i = 0; i < this.profile.experience.length; i++) {
+      if (this.profile.experience[i].id === this.experience.id) {
+        this.profile.experience[i] = this.experience;
+      }
+    }
+    
     this._profileService.updateProfile(this.id, this.profile).subscribe(
       response => {
         console.log(this.profile);
+
       }
     )
+
     setTimeout(() => {
       window.location.reload();
     }, 1000);
+  
   }
 
 }

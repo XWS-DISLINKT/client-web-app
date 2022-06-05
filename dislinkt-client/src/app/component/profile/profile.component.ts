@@ -6,6 +6,8 @@ import { AddEducationComponent } from 'src/app/modal/add-education/add-education
 import { AddExperienceComponent } from 'src/app/modal/add-experience/add-experience.component';
 import { AddInterestComponent } from 'src/app/modal/add-interest/add-interest.component';
 import { AddSkillComponent } from 'src/app/modal/add-skill/add-skill.component';
+import { EditExperienceComponent } from 'src/app/modal/edit-experience/edit-experience.component';
+import { Experience } from 'src/app/model/experience';
 import { Post } from 'src/app/model/post';
 import { Profile } from 'src/app/model/profile';
 import { PostService } from 'src/app/service/post-service/post.service';
@@ -70,6 +72,16 @@ export class ProfileComponent implements OnInit {
 
       }
     )
+  }
+
+  openModalUpdateExperince(experience: Experience): void {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.id = "add-experience-modal";
+    dialogConfig.height = "70%";
+    dialogConfig.width = "32%";
+    dialogConfig.data = experience;
+    const modalDialog = this.matDialog.open(EditExperienceComponent, dialogConfig);
   }
 
   openModalAddBiography(): void {
