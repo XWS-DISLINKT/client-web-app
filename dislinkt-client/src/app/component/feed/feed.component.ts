@@ -153,6 +153,7 @@ export class FeedComponent implements OnInit {
     this.newPost.picture = imageToUpload.name;
     const formData = new FormData();
     formData.append('file', imageToUpload, imageToUpload.name);
+    formData.append('fileName', imageToUpload.name);
     this._postService.uploadImage(formData).subscribe(event =>{
       if(event.type === HttpEventType.Response){
         this.onUploadFinished.emit(event.body);
