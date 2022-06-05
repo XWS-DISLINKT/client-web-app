@@ -32,7 +32,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AddBiographyComponent } from './modal/add-biography/add-biography.component';
 import { EditExperienceComponent } from './modal/edit-experience/edit-experience.component';
-import { EditEducationComponent } from './modal/edit-education/edit-education.component'; 
+import { EditEducationComponent } from './modal/edit-education/edit-education.component';
+import { JobsComponent } from './component/jobs/jobs.component'; 
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { EditEducationComponent } from './modal/edit-education/edit-education.co
     AddInterestComponent,
     AddBiographyComponent,
     EditExperienceComponent,
-    EditEducationComponent
+    EditEducationComponent,
+    JobsComponent
   ],
   imports: [
     BrowserModule,
