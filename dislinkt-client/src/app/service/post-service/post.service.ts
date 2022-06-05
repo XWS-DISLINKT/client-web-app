@@ -31,4 +31,8 @@ export class PostService {
   createPost(newPost: PostDTO): Observable<any> {
     return this._http.post<any>(this.applicationURL + "/post", newPost);
   }
+
+  uploadImage(formData: FormData): Observable<any> {
+    return this._http.post<any>(this.applicationURL + "/post/image", formData, {reportProgress: false, observe: 'events'});
+  }
 }

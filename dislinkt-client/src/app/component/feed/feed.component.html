@@ -19,8 +19,11 @@
             <div class="input-options">
                 <mat-icon aria-hidden="false" style="cursor: pointer;">photo</mat-icon>
                 <h4>Photo</h4>
+                <p>
+                    <input type="file" #file placeholder="Image">
+                </p>
             </div>
-            <button mat-raised-button color="secondary" class="like-button" type="submit" style="float: right; margin-top: -25px;" (click)="createPost()">Submit</button> <br>
+            <button mat-raised-button color="secondary" class="like-button" type="submit" style="float: right; margin-top: -25px;" (click)="createPost(file.files)">Submit</button> <br>
         </div>
         
     </div> <br>

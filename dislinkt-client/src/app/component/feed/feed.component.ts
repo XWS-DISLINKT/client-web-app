@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { HttpEventType } from '@angular/common/http';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AnotherPostDTO } from 'src/app/dto/anotherPostDTO';
 import { PostDTO } from 'src/app/dto/postDTO';
 import { Post } from 'src/app/model/post';
@@ -11,7 +12,7 @@ import { ProfileService } from 'src/app/service/profile-service/profile.service'
   styleUrls: ['./feed.component.css']
 })
 export class FeedComponent implements OnInit {
-
+  @Output() public onUploadFinished = new EventEmitter();
   public canComment: boolean = false;
   public isProfileOwner: boolean = true;
 
@@ -35,10 +36,11 @@ export class FeedComponent implements OnInit {
     
   }
 
-  createPost(): void {
+  createPost(files): void {
     this.newPost.userId = this.id;
     this.newPost.links.push("https://github.com/XWS-DISLINKT/dislinkt");
     //this.dto.post.text = this.post;
+    this.uploadFile(files);
     console.log(this.newPost)
     this._postService.createPost(this.newPost).subscribe(
       response => {
@@ -86,6 +88,22 @@ export class FeedComponent implements OnInit {
         }
       )
     }
+  }
+
+  uploadFile = (files) => {
+    if(files.length === 0){
+      return;
+    }
+
+    let imageToUpload = <File>files[0];
+    this.newPost.picture = imageToUpload.name;
+    const formData = new FormData();
+    formData.append('file', imageToUpload, imageToUpload.name);
+    this._postService.uploadImage(formData).subscribe(event =>{
+      if(event.type === HttpEventType.Response){
+        this.onUploadFinished.emit(event.body);
+      }
+    })
   }
 
 }
