@@ -29,7 +29,8 @@ import { AddInterestComponent } from './modal/add-interest/add-interest.componen
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatChipsModule } from '@angular/material/chips';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
+import { AddBiographyComponent } from './modal/add-biography/add-biography.component'; 
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { HttpClientModule } from '@angular/common/http';
     AddExperienceComponent,
     AddEducationComponent,
     AddSkillComponent,
-    AddInterestComponent
+    AddInterestComponent,
+    AddBiographyComponent
   ],
   imports: [
     BrowserModule,

@@ -7,19 +7,19 @@
             <p>
                 <mat-form-field appearance="legacy" style="width: 100%;">
                     <mat-label>School</mat-label>
-                    <input type="text" matInput placeholder="School" required>
+                    <input type="text" matInput placeholder="School" required [(ngModel)]="education.school">
                 </mat-form-field>
             </p>
             <p>
                 <mat-form-field appearance="legacy" style="width: 100%;">
                     <mat-label>Degree</mat-label>
-                    <input type="text" matInput placeholder="Degree">
+                    <input type="text" matInput placeholder="Degree" [(ngModel)]="education.degree">
                 </mat-form-field>
             </p>
             <p>
                 <mat-form-field appearance="legacy" style="width: 100%;">
                     <mat-label>Field of study</mat-label>
-                    <input type="text" matInput placeholder="Field of study">
+                    <input type="text" matInput placeholder="Field of study" [(ngModel)]="education.fieldOfStudy">
                 </mat-form-field>
             </p>
             <p>
@@ -74,7 +74,7 @@
             </p>
             <br>
             <div style="text-align: center; float: right;">
-                <button mat-raised-button color="primary" >
+                <button mat-raised-button color="primary" (click)="addEducation()" >
                     Save
                 </button>
             </div>

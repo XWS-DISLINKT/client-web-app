@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
+import { AddBiographyComponent } from 'src/app/modal/add-biography/add-biography.component';
 import { AddEducationComponent } from 'src/app/modal/add-education/add-education.component';
 import { AddExperienceComponent } from 'src/app/modal/add-experience/add-experience.component';
 import { AddInterestComponent } from 'src/app/modal/add-interest/add-interest.component';
@@ -33,6 +34,8 @@ export class ProfileComponent implements OnInit {
     experience: []
   }
 
+  public headline: string = "";
+
   posts: Post[] = [];
 
   constructor(public matDialog: MatDialog,
@@ -51,6 +54,7 @@ export class ProfileComponent implements OnInit {
     this._profileService.getProfile(id).subscribe(
       response => {
         this.profile = response;
+        this.headline = response.experience[0].jobTitle + " at " + response.experience[0].companyName;
       }
     )
   }
@@ -66,6 +70,15 @@ export class ProfileComponent implements OnInit {
 
       }
     )
+  }
+
+  openModalAddBiography(): void {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.id = "add-experience-modal";
+    dialogConfig.height = "70%";
+    dialogConfig.width = "32%";
+    const modalDialog = this.matDialog.open(AddBiographyComponent, dialogConfig);
   }
 
   openModalAddExperience(): void {

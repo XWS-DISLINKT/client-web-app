@@ -7,13 +7,13 @@
             <p>
                 <mat-form-field appearance="legacy" style="width: 100%;">
                     <mat-label>Title</mat-label>
-                    <input type="text" matInput placeholder="Title" required>
+                    <input type="text" matInput placeholder="Title" required [(ngModel)]="experience.jobTitle">
                 </mat-form-field>
             </p>
             <p>
                 <mat-form-field appearance="legacy" style="width: 100%;">
                     <mat-label>Company Name</mat-label>
-                    <input type="text" matInput placeholder="Company name" required>
+                    <input type="text" matInput placeholder="Company name" required [(ngModel)]="experience.companyName">
                 </mat-form-field>
             </p>
             <p>
@@ -86,12 +86,12 @@
             <p>
                 <mat-form-field appearance="legacy" style="width: 100%;">
                     <mat-label>Description</mat-label>
-                    <input type="text" matInput placeholder="Description">
+                    <input type="text" matInput placeholder="Description" [(ngModel)]="experience.description">
                 </mat-form-field>
             </p>
             <br>
             <div style="text-align: center; float: right;">
-                <button mat-raised-button color="primary" >
+                <button mat-raised-button color="primary" (click)="addExperience()" >
                     Save
                 </button>
             </div>

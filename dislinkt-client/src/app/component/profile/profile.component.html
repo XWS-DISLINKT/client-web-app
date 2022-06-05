@@ -12,7 +12,7 @@
                     {{profile.name}} {{profile.lastName}}
                 </h1>
                 <p style="font-weight: 300;">
-                    Java Developer at SomeCompany, Belgrade
+                    {{headline}}
                 </p>
                 <p style="font-weight: 300;">
                     Novi Sad
@@ -73,7 +73,7 @@
         <div style="width:70%" *ngIf="isProfileOwner">
             <button mat-icon-button color="primary"
                 style="float: right; margin-inline:5%;padding-inline: 5%; margin-top:1%">
-                <mat-icon style="font-size: 28px; ">edit</mat-icon>
+                <mat-icon style="font-size: 28px; " (click)="openModalAddBiography()" >edit</mat-icon>
             </button>
         </div>
         <p style=" margin: 1%;font-weight: 300;">

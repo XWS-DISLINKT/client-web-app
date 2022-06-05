@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Profile } from 'src/app/model/profile';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -21,5 +22,9 @@ export class ProfileService {
 
   getProfile(id: string): Observable<any> {
     return this._http.get<any>(this.applicationURL + "/profile/" + id);
+  }
+
+  updateProfile(id: string, updatedProfile: Profile): Observable<any> {
+    return this._http.put<any>(this.applicationURL + "/profile/" + id, updatedProfile);
   }
 }

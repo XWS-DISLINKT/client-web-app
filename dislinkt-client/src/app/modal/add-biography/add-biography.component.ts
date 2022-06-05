@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Experience } from 'src/app/model/experience';
 import { Profile } from 'src/app/model/profile';
 import { ProfileService } from 'src/app/service/profile-service/profile.service';
 
 @Component({
-  selector: 'app-add-experience',
-  templateUrl: './add-experience.component.html',
-  styleUrls: ['./add-experience.component.css']
+  selector: 'app-add-biography',
+  templateUrl: './add-biography.component.html',
+  styleUrls: ['./add-biography.component.css']
 })
-export class AddExperienceComponent implements OnInit {
+export class AddBiographyComponent implements OnInit {
   private id: any;
 
   profile: Profile = {
@@ -23,13 +22,6 @@ export class AddExperienceComponent implements OnInit {
     skills: [],
     interests: [],
     experience: []
-  }
-
-  experience: Experience = {
-    id: "",
-    jobTitle: "",
-    companyName: "",
-    description: ""
   }
 
   constructor(private _profileService: ProfileService) { }
@@ -47,8 +39,7 @@ export class AddExperienceComponent implements OnInit {
     )
   }
 
-  addExperience(): void {
-    this.profile.experience.push(this.experience);
+  addBiography(): void {
     this._profileService.updateProfile(this.id, this.profile).subscribe(
       response => {
         console.log(this.profile);
