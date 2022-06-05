@@ -71,9 +71,26 @@ export class ProfileComponent implements OnInit {
     this._postService.getPostsByUser(userId).subscribe(
       response => {
         this.posts = response.posts;
-
+        this.getCommentsForPosts(this.posts)
       }
     )
+  }
+
+  getCommentsForPosts(posts: Post[]): void {
+    for (let i = 0; i < posts.length; i++) {
+      this._postService.getAllCommentsByPost(posts[i].id).subscribe(
+        response => {
+          posts[i].comments = response.comments;
+          posts[i].numberOfComments = response.comments.length;
+          this._postService.getAllReactionsByPost(posts[i].id).subscribe(
+            res => {
+              posts[i].reactions = res.reactions;
+              posts[i].numberOfReactions = res.reactions.length;
+            }
+          )
+        }
+      )
+    }
   }
 
   openModalUpdateExperince(experience: Experience): void {

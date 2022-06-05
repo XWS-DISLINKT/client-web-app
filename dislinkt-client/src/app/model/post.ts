@@ -1,3 +1,4 @@
+import { Profile } from "./profile";
 import { Reaction } from "./reaction";
 
 export interface Post {
@@ -8,4 +9,7 @@ export interface Post {
     links: string[];
     comments: Comment[];
     reactions: Reaction[];
+    profile: Profile;
+    numberOfComments: number;
+    numberOfReactions: number;
 }

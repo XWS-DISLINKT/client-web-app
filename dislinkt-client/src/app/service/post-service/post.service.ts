@@ -22,4 +22,8 @@ export class PostService {
   getAllReactionsByPost(postId: string): Observable<any> {
     return this._http.get<any>(this.applicationURL + "/post/" + postId + "/reaction");
   }
+
+  getFeed(userId: string): Observable<any> {
+    return this._http.get<any>(this.applicationURL + "/post/feed/" + userId);
+  }
 }
