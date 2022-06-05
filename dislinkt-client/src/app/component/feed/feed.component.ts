@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AnotherPostDTO } from 'src/app/dto/anotherPostDTO';
 import { PostDTO } from 'src/app/dto/postDTO';
+import { ReactionDTO } from 'src/app/dto/reactionDTO';
+import { CommentDTO } from 'src/app/dto/commentDTO';
 import { Post } from 'src/app/model/post';
 import { Reaction } from 'src/app/model/reaction';
 import { PostService } from 'src/app/service/post-service/post.service';
@@ -27,6 +28,20 @@ export class FeedComponent implements OnInit {
     links: []
   }
 
+  private reactionDTO: ReactionDTO = {
+    id: "",
+    postId: "",
+    userId: "",
+    reaction: ""
+  }
+
+  public commentDTO: CommentDTO = {
+    id: "",
+    postId: "",
+    userId: "",
+    text: ""
+  }
+
   constructor(private _postService: PostService,
               private _profileService: ProfileService) { }
 
@@ -36,10 +51,47 @@ export class FeedComponent implements OnInit {
     
   }
 
+  leaveComment(postId: string): void {
+    this.commentDTO.id = "623b0cc3a34d25d8567f9f90";
+    this.commentDTO.userId = this.id;
+    this.commentDTO.postId = postId;
+    console.log(this.commentDTO)
+    this._postService.leaveComment(this.commentDTO).subscribe(
+      response => {
+        console.log(response);
+      }
+    )
+  }
+
+  like(postId: string): void {
+    console.log(postId);
+    this.reactionDTO.id = "623b0cc3a34d25d8567f9f90";
+    this.reactionDTO.postId = postId;
+    this.reactionDTO.userId = this.id;
+    this.reactionDTO.reaction = "like";
+    console.log(this.reactionDTO);
+    this._postService.likePost(this.reactionDTO).subscribe(
+      response => {
+        console.log(response);
+      }
+    )
+  }
+
+  dislike(postId: string): void {
+    this.reactionDTO.id = "623b0cc3a34d25d8567f9f90";
+    this.reactionDTO.postId = postId;
+    this.reactionDTO.userId = this.id;
+    this.reactionDTO.reaction = "dislike";
+    this._postService.dislikePost(this.reactionDTO).subscribe(
+      response => {
+        console.log(response);
+      }
+    )
+  }
+
   createPost(): void {
     this.newPost.userId = this.id;
     this.newPost.links.push("https://github.com/XWS-DISLINKT/dislinkt");
-    //this.dto.post.text = this.post;
     console.log(this.newPost)
     this._postService.createPost(this.newPost).subscribe(
       response => {

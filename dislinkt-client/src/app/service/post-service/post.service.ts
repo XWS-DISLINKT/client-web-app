@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { CommentDTO } from 'src/app/dto/commentDTO';
 import { PostDTO } from 'src/app/dto/postDTO';
+import { ReactionDTO } from 'src/app/dto/reactionDTO';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -30,5 +32,17 @@ export class PostService {
 
   createPost(newPost: PostDTO): Observable<any> {
     return this._http.post<any>(this.applicationURL + "/post", newPost);
+  }
+
+  likePost(reactionDTO: ReactionDTO): Observable<any> {
+    return this._http.post<any>(this.applicationURL + "/post/like", reactionDTO);
+  }
+
+  dislikePost(reactionDTO: ReactionDTO): Observable<any> {
+    return this._http.post<any>(this.applicationURL + "/post/dislike", reactionDTO);
+  }
+
+  leaveComment(commentDTO: CommentDTO): Observable<any> {
+    return this._http.post<any>(this.applicationURL + "/post/comment", commentDTO);
   }
 }
