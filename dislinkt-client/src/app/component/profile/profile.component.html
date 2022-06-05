@@ -99,7 +99,9 @@
                 </p>
                 <p class="name-surname">{{profile.name}} {{profile.lastName}}</p>
             </div> <br> <br>
-            <p class="post-text" [innerHTML]="post.text | linky"></p> <br>
+            <p class="post-text" [innerHTML]="post.text | linky"></p> 
+            
+            <img style="width: 500px; " src="../../../assets/images/{{post.picture}}"/><br><br>
             <p class="post-info likes">{{post.numberOfReactions}} likes</p>
             <p class="post-info comment">{{post.numberOfComments}} comments</p>
         </div>
