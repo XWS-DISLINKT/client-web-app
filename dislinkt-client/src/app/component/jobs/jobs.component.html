@@ -1,20 +1,35 @@
 <div style="margin-inline: 15%; margin-top: 3%;">
+    <div style="margin-inline: 3%;">
 
-    <h1 style="font-size:40px; font-weight: 200; margin-top: 6%; margin-bottom: 5%; text-align: center;">Job Offers</h1>
-    <div class="rectangle"></div>
-    <br>
-    <br>
-    <br>
-    <button mat-button color="primary" style="margin-left: 85%;" (click)="openNewJobDialog()">New Job Offer</button>
-    <div class="flex-container">
+        <h1 style="font-size:40px; font-weight: 200; margin-top: 5%; margin-bottom: 1.5%;">Job offers</h1>
+        <h2 style="font-size:30px; font-weight: 200;">Explore opportunities.</h2>
+        <div class=" d-flex flex-row" style="margin-bottom: 2%;">
         
+            <mat-form-field class="example-form-field"
+                style="width: 40%; margin-right: 5%; margin-top: 2%; margin-bottom: 1%;">
+                <mat-label>Search</mat-label>
+                <input matInput type="text" (keyup)="search()" [(ngModel)]="searchText">
+                <button *ngIf="searchText" matSuffix mat-icon-button aria-label="Clear"
+                    (click)="searchText=''; search()">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+            <button mat-button color="primary" style="margin-left: 35%;" (click)="openNewJobDialog()">New Job
+                Offer</button>
+        </div>
+    </div>
+    
+    <div class="flex-container">
+
         <div class="flex-item" *ngFor="let job of jobs">
             <div class="white-container " style="padding: 5%; padding-inline: 4%;">
                 <div style="padding-inline: 1%;">
-                    <p style="font-size: 22px; font-weight: 400;  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; ">
+                    <p
+                        style="font-size: 22px; font-weight: 400;  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; ">
                         {{job.position}} <span style="padding-inline: 10px">&#183;</span> Senior
                     </p>
-                    <p style="font-size: 18px; font-weight: 300;  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; ">
+                    <p
+                        style="font-size: 18px; font-weight: 300;  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; ">
                         {{job.companyName}}
                     </p>
                 </div>
@@ -40,7 +55,7 @@
                 </div>
             </div>
         </div>
-       
+
     </div>
     <br>
     <br>

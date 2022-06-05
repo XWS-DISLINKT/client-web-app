@@ -11,6 +11,8 @@ import { JobService } from 'src/app/service/job-service/job.service';
 })
 export class JobsComponent implements OnInit {
   jobs: Job[] = [];
+  allJobs: Job[] = [];
+  public searchText: string = "";
 
   constructor(private jobService: JobService, public matDialog: MatDialog) { }
 
@@ -18,6 +20,7 @@ export class JobsComponent implements OnInit {
     this.jobService.getJobs().subscribe(
       response => {
         this.jobs = response;
+        this.allJobs = response;
       }
     )
   }
@@ -33,6 +36,22 @@ export class JobsComponent implements OnInit {
       location.reload()
     })
     
+  }
+
+  search() {
+    var searchWords = this.searchText.toLowerCase().split(" ");
+    this.jobs = [];
+    const result = this.allJobs.filter(job => {
+      var isFound = true;
+      for (let sw of searchWords) {
+        if (!(job.companyName.toLowerCase().includes(sw) || job.position.toLowerCase().includes(sw))) {
+          isFound = false;
+        }
+      }
+      if (isFound == true) {
+        this.jobs.push(job);
+      }
+    });
   }
 
 
