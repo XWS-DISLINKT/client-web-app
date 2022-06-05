@@ -1,14 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Education } from 'src/app/model/education';
 import { Profile } from 'src/app/model/profile';
 import { ProfileService } from 'src/app/service/profile-service/profile.service';
-import { Education } from 'src/app/model/education';
+import { EditExperienceComponent } from '../edit-experience/edit-experience.component';
 
 @Component({
-  selector: 'app-add-education',
-  templateUrl: './add-education.component.html',
-  styleUrls: ['./add-education.component.css']
+  selector: 'app-edit-education',
+  templateUrl: './edit-education.component.html',
+  styleUrls: ['./edit-education.component.css']
 })
-export class AddEducationComponent implements OnInit {
+export class EditEducationComponent implements OnInit {
+
   private id: any;
 
   profile: Profile = {
@@ -31,8 +34,13 @@ export class AddEducationComponent implements OnInit {
     fieldOfStudy: "",
     degree: ""
   }
-  
-  constructor(private _profileService: ProfileService) { }
+
+  constructor(private _profileService: ProfileService,
+              private _dialogRef: MatDialogRef<EditExperienceComponent>,
+              @Inject(MAT_DIALOG_DATA) data) { 
+
+                this.education = data;
+              }
 
   ngOnInit(): void {
     this.id = localStorage.getItem("loggedId");
@@ -47,13 +55,20 @@ export class AddEducationComponent implements OnInit {
     )
   }
 
-  addEducation(): void {
-    this.profile.education.push(this.education);
+  updateEducation(): void {
+    for (let i = 0; i < this.profile.education.length; i++) {
+      if (this.profile.education[i].id === this.education.id) {
+        this.profile.education[i] = this.education;
+      }
+    }
+
     this._profileService.updateProfile(this.id, this.profile).subscribe(
       response => {
         console.log(this.profile);
+
       }
     )
+
     setTimeout(() => {
       window.location.reload();
     }, 1000);
