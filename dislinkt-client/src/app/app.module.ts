@@ -32,7 +32,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AddBiographyComponent } from './modal/add-biography/add-biography.component';
 import { EditExperienceComponent } from './modal/edit-experience/edit-experience.component';
-import { EditEducationComponent } from './modal/edit-education/edit-education.component'; 
+import { EditEducationComponent } from './modal/edit-education/edit-education.component';
+import { JobsComponent } from './component/jobs/jobs.component';
+import { AddJobComponent } from './modal/add-job/add-job.component';
+import { DisplayConnectionTokenComponent } from './modal/display-connection-token/display-connection-token.component'; 
 
 
 @NgModule({
@@ -52,7 +55,10 @@ import { EditEducationComponent } from './modal/edit-education/edit-education.co
     AddInterestComponent,
     AddBiographyComponent,
     EditExperienceComponent,
-    EditEducationComponent
+    EditEducationComponent,
+    JobsComponent,
+    AddJobComponent,
+    DisplayConnectionTokenComponent
   ],
   imports: [
     BrowserModule,
