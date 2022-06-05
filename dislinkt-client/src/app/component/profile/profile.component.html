@@ -9,7 +9,7 @@
         <div class="flex-container">
             <div class="flex-item-left">
                 <h1 style="margin-top: 5%; font-size: 30px; font-weight: 400;">
-                    {{profile.name}} {{profile.lastName}}
+                    {{profile.name}} {{profile.lastName}} <button mat-button color="primary" *ngIf="isProfileOwner" (click)="openConnectionDialog()">Connect with JobLab account</button>
                 </h1>
                 <p style="font-weight: 300;">
                     {{headline}}

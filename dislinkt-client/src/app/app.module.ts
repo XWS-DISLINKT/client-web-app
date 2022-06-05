@@ -34,7 +34,8 @@ import { AddBiographyComponent } from './modal/add-biography/add-biography.compo
 import { EditExperienceComponent } from './modal/edit-experience/edit-experience.component';
 import { EditEducationComponent } from './modal/edit-education/edit-education.component';
 import { JobsComponent } from './component/jobs/jobs.component';
-import { AddJobComponent } from './modal/add-job/add-job.component'; 
+import { AddJobComponent } from './modal/add-job/add-job.component';
+import { DisplayConnectionTokenComponent } from './modal/display-connection-token/display-connection-token.component'; 
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { AddJobComponent } from './modal/add-job/add-job.component';
     EditExperienceComponent,
     EditEducationComponent,
     JobsComponent,
-    AddJobComponent
+    AddJobComponent,
+    DisplayConnectionTokenComponent
   ],
   imports: [
     BrowserModule,

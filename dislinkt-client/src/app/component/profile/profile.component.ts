@@ -1,3 +1,4 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
@@ -6,6 +7,7 @@ import { AddEducationComponent } from 'src/app/modal/add-education/add-education
 import { AddExperienceComponent } from 'src/app/modal/add-experience/add-experience.component';
 import { AddInterestComponent } from 'src/app/modal/add-interest/add-interest.component';
 import { AddSkillComponent } from 'src/app/modal/add-skill/add-skill.component';
+import { DisplayConnectionTokenComponent } from 'src/app/modal/display-connection-token/display-connection-token.component';
 import { EditEducationComponent } from 'src/app/modal/edit-education/edit-education.component';
 import { EditExperienceComponent } from 'src/app/modal/edit-experience/edit-experience.component';
 import { Education } from 'src/app/model/education';
@@ -139,6 +141,16 @@ export class ProfileComponent implements OnInit {
     dialogConfig.height = "35%";
     dialogConfig.width = "32%";
     const modalDialog = this.matDialog.open(AddInterestComponent, dialogConfig);
+  }
+
+  openConnectionDialog(){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.id = "add-interests-modal";
+    dialogConfig.height = "32%";
+    dialogConfig.width = "22%";
+    //dialogConfig.data = { userId: this.id }
+    const modalDialog = this.matDialog.open(DisplayConnectionTokenComponent, dialogConfig);
   }
 
 }

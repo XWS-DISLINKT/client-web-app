@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ApiKeyDto } from 'src/app/model/api-key-dto';
 import { Job } from 'src/app/model/job';
 import { NewJobDto } from 'src/app/model/new-job-dto';
 import { environment } from 'src/environments/environment';
@@ -21,4 +22,10 @@ export class JobService {
   createJob(dto: NewJobDto) {
     return this._http.post(this.applicationURL + "/post/job/dislinkt", dto);
   }
+
+  getConnectionToken(): Observable<ApiKeyDto>{
+    return this._http.post<ApiKeyDto>(this.applicationURL + "/post/job/apikey", null);
+  }
+
+
 }
