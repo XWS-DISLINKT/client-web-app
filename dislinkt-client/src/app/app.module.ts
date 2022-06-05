@@ -36,6 +36,7 @@ import { EditEducationComponent } from './modal/edit-education/edit-education.co
 import { JobsComponent } from './component/jobs/jobs.component';
 import { AddJobComponent } from './modal/add-job/add-job.component';
 import { DisplayConnectionTokenComponent } from './modal/display-connection-token/display-connection-token.component'; 
+import { LinkyModule } from 'angular-linky';
 
 
 @NgModule({
@@ -77,6 +78,7 @@ import { DisplayConnectionTokenComponent } from './modal/display-connection-toke
     MatDividerModule,
     MatAutocompleteModule,
     MatChipsModule,
+    LinkyModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule
