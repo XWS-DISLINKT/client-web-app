@@ -24,13 +24,13 @@
             </div>
             <div class="flex-item-center">
                 <p style="font-size: large; font-weight: 400;">{{profile.name}} {{profile.lastName}}</p>
-                <p style="margin-block: 0.5%;">Job title</p>
-                <p style="margin-block: 0.5%;">Location</p>
+                <p style="margin-block: 0.5%;">{{profile.experience[0].jobTitle}}</p>
+                <p style="margin-block: 0.5%;">Serbia</p>
                 <p style="margin-block: 0.5%;" *ngIf="isAuthenticated">17 shared connections</p>
             </div>
             <div class="flex-item-right">
                 <button mat-flat-button color="primary" style="margin: 2%;" (click)="viewFullProfile(profile.id)"> View full profile </button>
-                <button mat-stroked-button color="primary" style="margin: 2%;" *ngIf="isAuthenticated">Connect </button>
+                <button mat-stroked-button color="primary" style="margin: 2%;" *ngIf="isAuthenticated " (click)="connect(profile.id, profile.isPrivate)">Connect </button>
             </div>
             <hr color="#c5c5c5" size="1" style="width: 97%;">
         </div>

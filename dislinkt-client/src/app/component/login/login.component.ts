@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
         this._router.navigate(['/feed'])
         setTimeout(() => {
           window.location.reload();
-        }, 200);
+        }, 1000);
       },
       error => {
         this._snackBar.open("An error has ocurred. Please try again.", "Close");
