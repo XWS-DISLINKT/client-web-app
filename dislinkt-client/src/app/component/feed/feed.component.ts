@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AnotherPostDTO } from 'src/app/dto/anotherPostDTO';
+import { PostDTO } from 'src/app/dto/postDTO';
 import { Post } from 'src/app/model/post';
 import { PostService } from 'src/app/service/post-service/post.service';
 import { ProfileService } from 'src/app/service/profile-service/profile.service';
@@ -16,6 +18,14 @@ export class FeedComponent implements OnInit {
   public posts: Post[] = [];
   private id: any;
 
+  public newPost: PostDTO = {
+    id: "",
+    userId: "",
+    text: "",
+    picture: "",
+    links: []
+  }
+
   constructor(private _postService: PostService,
               private _profileService: ProfileService) { }
 
@@ -23,6 +33,18 @@ export class FeedComponent implements OnInit {
     this.id = localStorage.getItem("loggedId");
     this.getFeed(this.id);
     
+  }
+
+  createPost(): void {
+    this.newPost.userId = this.id;
+    this.newPost.links.push("https://github.com/XWS-DISLINKT/dislinkt");
+    //this.dto.post.text = this.post;
+    console.log(this.newPost)
+    this._postService.createPost(this.newPost).subscribe(
+      response => {
+        console.log(response);
+      }
+    )
   }
 
   showComentInput(): void {

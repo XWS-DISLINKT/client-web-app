@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { PostDTO } from 'src/app/dto/postDTO';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -25,5 +26,9 @@ export class PostService {
 
   getFeed(userId: string): Observable<any> {
     return this._http.get<any>(this.applicationURL + "/post/feed/" + userId);
+  }
+
+  createPost(newPost: PostDTO): Observable<any> {
+    return this._http.post<any>(this.applicationURL + "/post", newPost);
   }
 }
