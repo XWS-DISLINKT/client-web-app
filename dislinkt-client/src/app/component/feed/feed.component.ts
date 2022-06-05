@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AnotherPostDTO } from 'src/app/dto/anotherPostDTO';
 import { PostDTO } from 'src/app/dto/postDTO';
 import { Post } from 'src/app/model/post';
+import { Reaction } from 'src/app/model/reaction';
 import { PostService } from 'src/app/service/post-service/post.service';
 import { ProfileService } from 'src/app/service/profile-service/profile.service';
 
@@ -79,13 +80,23 @@ export class FeedComponent implements OnInit {
           posts[i].numberOfComments = response.comments.length;
           this._postService.getAllReactionsByPost(posts[i].id).subscribe(
             res => {
-              posts[i].reactions = res.reactions;
+              posts[i].reactions = res.reactions;//[{id:"", postId:"",  reaction: "like", userId:""}, {id:"", postId:"",  reaction: "like", userId:""}, {id:"", postId:"",  reaction: "dislike", userId:""}, {id:"", postId:"",  reaction: "like", userId:""}]
               posts[i].numberOfReactions = res.reactions.length;
             }
           )
         }
       )
     }
+  }
+
+  getLikes(reactions: Reaction[]): number{
+    var result = reactions.filter(r => r.reaction === "like");
+    return result.length;
+  }
+
+  getDislikes(reactions: Reaction[]): number{
+    var result = reactions.filter(r => r.reaction === "dislike");
+    return result.length;
   }
 
 }

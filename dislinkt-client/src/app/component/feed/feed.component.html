@@ -34,7 +34,7 @@
                 <p class="name-surname">{{post.profile.name}} {{post.profile.lastName}}</p>
             </div> <br> <br>
             <p class="post-text" [innerHTML]="post.text | linky"></p> <br>
-            <p class="post-info likes">{{post.numberOfReactions}} likes</p>
+            <p class="post-info likes">{{getLikes(post.reactions)}} likes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{getDislikes(post.reactions)}} dislikes</p>
             <p class="post-info comment">{{post.numberOfComments}} comments</p>
             <hr color="#c5c5c5" size="1" class="line">
             <button mat-raised-button color="secondary" class="like-button">Like</button>
