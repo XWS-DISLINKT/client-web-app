@@ -33,7 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddBiographyComponent } from './modal/add-biography/add-biography.component';
 import { EditExperienceComponent } from './modal/edit-experience/edit-experience.component';
 import { EditEducationComponent } from './modal/edit-education/edit-education.component';
-import { JobsComponent } from './component/jobs/jobs.component'; 
+import { JobsComponent } from './component/jobs/jobs.component';
+import { AddJobComponent } from './modal/add-job/add-job.component'; 
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { JobsComponent } from './component/jobs/jobs.component';
     AddBiographyComponent,
     EditExperienceComponent,
     EditEducationComponent,
-    JobsComponent
+    JobsComponent,
+    AddJobComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,40 @@
+<div class="profiles-container flex-container" style="padding: 2%; padding-inline: 3%;">
+    <div style="width: 100%;">
+        <div style=" margin-inline: 20%; text-align: center;">
+            <h2 style="font-size:22px; font-weight: 300; margin-bottom: 5%;">New Job</h2>
+            <div class="rectangle"></div>
+        </div>
+        <br>
+        <form [formGroup]="form">
+            <div>
+                <mat-form-field appearance="legacy" style="width: 100%;">
+                    <mat-label>Position</mat-label>
+                    <input matInput formControlName="positionCtrl" required>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="legacy" style="width: 100%;">
+                    <mat-label>Company</mat-label>
+                    <input matInput formControlName="companyCtrl" required>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="legacy" style="width: 100%;">
+                    <mat-label>Location</mat-label>
+                    <input matInput formControlName="locationCtrl" required>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="legacy" style="width: 100%;">
+                    <mat-label>Description</mat-label>
+                    <textarea matInput formControlName="descriptionCtrl" style="height: 110px;"></textarea>
+                </mat-form-field>
+            </div>
+            <br>
+            <br>
+            <div style="text-align: center; width: 100%;">
+                <button mat-raised-button color="primary" (click)="onSave()">Post</button>
+            </div>
+        </form>
+    </div>
+</div>

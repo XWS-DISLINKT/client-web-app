@@ -5,7 +5,7 @@
     <br>
     <br>
     <br>
-    <button mat-button color="primary" style="margin-left: 85%;">New Job Offer</button>
+    <button mat-button color="primary" style="margin-left: 85%;" (click)="openNewJobDialog()">New Job Offer</button>
     <div class="flex-container">
         
         <div class="flex-item" *ngFor="let job of jobs">
