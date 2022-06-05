@@ -18,16 +18,12 @@ export class FeedComponent implements OnInit {
   public posts: Post[] = [];
   private id: any;
 
-  public post: PostDTO = {
+  public newPost: PostDTO = {
     id: "",
     userId: "",
     text: "",
     picture: "",
     links: []
-  }
-
-  dto: AnotherPostDTO = {
-    post: this.post
   }
 
   constructor(private _postService: PostService,
@@ -40,11 +36,11 @@ export class FeedComponent implements OnInit {
   }
 
   createPost(): void {
-    this.dto.post.userId = this.id;
-    this.dto.post.links.push("https://github.com/XWS-DISLINKT/dislinkt");
+    this.newPost.userId = this.id;
+    this.newPost.links.push("https://github.com/XWS-DISLINKT/dislinkt");
     //this.dto.post.text = this.post;
-    console.log(this.dto)
-    this._postService.createPost(this.dto).subscribe(
+    console.log(this.newPost)
+    this._postService.createPost(this.newPost).subscribe(
       response => {
         console.log(response);
       }
