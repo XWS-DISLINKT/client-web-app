@@ -1,8 +1,10 @@
 import { HttpEventType } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { AnotherPostDTO } from 'src/app/dto/anotherPostDTO';
 import { PostDTO } from 'src/app/dto/postDTO';
+import { ReactionDTO } from 'src/app/dto/reactionDTO';
+import { CommentDTO } from 'src/app/dto/commentDTO';
 import { Post } from 'src/app/model/post';
+import { Reaction } from 'src/app/model/reaction';
 import { PostService } from 'src/app/service/post-service/post.service';
 import { ProfileService } from 'src/app/service/profile-service/profile.service';
 
@@ -27,6 +29,20 @@ export class FeedComponent implements OnInit {
     links: []
   }
 
+  private reactionDTO: ReactionDTO = {
+    id: "",
+    postId: "",
+    userId: "",
+    reaction: ""
+  }
+
+  public commentDTO: CommentDTO = {
+    id: "",
+    postId: "",
+    userId: "",
+    text: ""
+  }
+
   constructor(private _postService: PostService,
               private _profileService: ProfileService) { }
 
@@ -43,6 +59,44 @@ export class FeedComponent implements OnInit {
     this.uploadFile(files);
     console.log(this.newPost)
     this._postService.createPost(this.newPost).subscribe(
+      response => {
+        console.log(response);
+      }
+    )
+  }
+
+  leaveComment(postId: string): void {
+    this.commentDTO.id = "623b0cc3a34d25d8567f9f90";
+    this.commentDTO.userId = this.id;
+    this.commentDTO.postId = postId;
+    console.log(this.commentDTO)
+    this._postService.leaveComment(this.commentDTO).subscribe(
+      response => {
+        console.log(response);
+      }
+    )
+  }
+
+  like(postId: string): void {
+    console.log(postId);
+    this.reactionDTO.id = "623b0cc3a34d25d8567f9f90";
+    this.reactionDTO.postId = postId;
+    this.reactionDTO.userId = this.id;
+    this.reactionDTO.reaction = "like";
+    console.log(this.reactionDTO);
+    this._postService.likePost(this.reactionDTO).subscribe(
+      response => {
+        console.log(response);
+      }
+    )
+  }
+
+  dislike(postId: string): void {
+    this.reactionDTO.id = "623b0cc3a34d25d8567f9f90";
+    this.reactionDTO.postId = postId;
+    this.reactionDTO.userId = this.id;
+    this.reactionDTO.reaction = "dislike";
+    this._postService.dislikePost(this.reactionDTO).subscribe(
       response => {
         console.log(response);
       }
@@ -81,7 +135,7 @@ export class FeedComponent implements OnInit {
           posts[i].numberOfComments = response.comments.length;
           this._postService.getAllReactionsByPost(posts[i].id).subscribe(
             res => {
-              posts[i].reactions = res.reactions;
+              posts[i].reactions = res.reactions;//[{id:"", postId:"",  reaction: "like", userId:""}, {id:"", postId:"",  reaction: "like", userId:""}, {id:"", postId:"",  reaction: "dislike", userId:""}, {id:"", postId:"",  reaction: "like", userId:""}]
               posts[i].numberOfReactions = res.reactions.length;
             }
           )
@@ -104,6 +158,16 @@ export class FeedComponent implements OnInit {
         this.onUploadFinished.emit(event.body);
       }
     })
+  }
+
+  getLikes(reactions: Reaction[]): number{
+    var result = reactions.filter(r => r.reaction === "like");
+    return result.length;
+  }
+
+  getDislikes(reactions: Reaction[]): number{
+    var result = reactions.filter(r => r.reaction === "dislike");
+    return result.length;
   }
 
 }
