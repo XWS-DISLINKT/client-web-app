@@ -33,4 +33,12 @@ export class ConnectionService {
     return this._http.post<any>(this.applicationURL + "/connection", request);
   }
 
+  blockConnection(requestBody: RequestDTO): Observable<any> {
+    return this._http.post<any>(this.applicationURL + "/connection/block", requestBody);
+  }
+
+  getBlockedConnections(userId: string): Observable<any> {
+    return this._http.get<any>(this.applicationURL + "/connection/blocked/usernames/" + userId);
+  }
+
 }

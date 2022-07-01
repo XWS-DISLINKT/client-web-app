@@ -20,6 +20,7 @@ export class ProfilesComponent implements OnInit {
   private id: any;
   private connections: Profile[] = [];
   private connectionsId: string[];
+  private blockedConnectionsId: string[];
 
   different: Profile[] = [];
   
@@ -33,9 +34,10 @@ export class ProfilesComponent implements OnInit {
               private _connectionService: ConnectionService) { }
 
   ngOnInit(): void {
-    this.getPublicProfiles();
     this.isAuthenticated = isLoggedIn();
     this.id = localStorage.getItem("loggedId");
+    this.getBlockedConnections(this.id);
+    this.getPublicProfiles();
   }
 
   connect(requestSenderId: string, isPrivate: boolean): void {
@@ -59,15 +61,29 @@ export class ProfilesComponent implements OnInit {
   getPublicProfiles(): void {
     this._profileService.getPublicProfiles().subscribe(
       response => {
-        this.profiles = response;
-        this.results = response.length;
+        if (this.isAuthenticated === true) {
+          for (let i = 0; i < response.length; i++) {
+            if (this.blockedConnectionsId.length > 0) {
+              for (let j = 0; j < this.blockedConnectionsId.length; j++) {
+                if (response[i].id !== this.blockedConnectionsId[j]) {
+                  this.profiles.push(response[i])
+                } 
+              }
+            } else {
+              this.profiles.push(response[i]);
+            }
+          }
+        } else {
+          this.profiles = response;
+        }
+        this.results = this.profiles.length;
       }
     )
   }
 
   searchProfiles(): void {
     if (this.searchText === "") {
-      this.getPublicProfiles();
+      //this.getPublicProfiles();
     } else {
       this._profileService.searchProfiles(this.searchText).subscribe(
         response => {
@@ -84,6 +100,14 @@ export class ProfilesComponent implements OnInit {
 
   viewFullProfile(id: string): void {
     this._router.navigate(['profile/' + id])
+  }
+
+  getBlockedConnections(userId: string): void {
+    this._connectionService.getBlockedConnections(userId).subscribe(
+      response => {
+        this.blockedConnectionsId = response;
+      }
+    )
   }
 
   getConnections(userId: string): void {

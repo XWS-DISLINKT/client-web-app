@@ -2,6 +2,7 @@ import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
+import { RequestDTO } from 'src/app/dto/requestDTO';
 import { AddBiographyComponent } from 'src/app/modal/add-biography/add-biography.component';
 import { AddEducationComponent } from 'src/app/modal/add-education/add-education.component';
 import { AddExperienceComponent } from 'src/app/modal/add-experience/add-experience.component';
@@ -14,6 +15,7 @@ import { Education } from 'src/app/model/education';
 import { Experience } from 'src/app/model/experience';
 import { Post } from 'src/app/model/post';
 import { Profile } from 'src/app/model/profile';
+import { ConnectionService } from 'src/app/service/connection-service/connection.service';
 import { PostService } from 'src/app/service/post-service/post.service';
 import { ProfileService } from 'src/app/service/profile-service/profile.service';
 
@@ -24,6 +26,7 @@ import { ProfileService } from 'src/app/service/profile-service/profile.service'
 })
 export class ProfileComponent implements OnInit {
   private id: any;
+  private ownerId: any;
   private routes: any;
   isProfileOwner = false; 
   profile: Profile = {
@@ -40,6 +43,11 @@ export class ProfileComponent implements OnInit {
     experience: []
   }
 
+  private requestDTO: RequestDTO = {
+    requestSenderId: "",
+    requestReceiverId: ""
+  }
+
   public headline: string = "";
 
   posts: Post[] = [];
@@ -47,11 +55,13 @@ export class ProfileComponent implements OnInit {
   constructor(public matDialog: MatDialog,
               private _route: ActivatedRoute,
               private _profileService: ProfileService,
-              private _postService: PostService) { }
+              private _postService: PostService,
+              private _connectionService: ConnectionService) { }
 
   ngOnInit(): void {
     this.id = this._route.snapshot.url[1].path;
-    this. isProfileOwner = this.checkIfIsOwner(this.id);
+    this.isProfileOwner = this.checkIfIsOwner(this.id);
+    this.ownerId = localStorage.getItem("loggedId");
     this.getProfile(this.id);
     this.getUserPosts(this.id);      
   }
@@ -93,6 +103,15 @@ export class ProfileComponent implements OnInit {
         }
       )
     }
+  }
+
+  blockConnection(): void {
+    this.requestDTO.requestReceiverId = this.id;
+    this.requestDTO.requestSenderId = this.ownerId;
+
+    this._connectionService.blockConnection(this.requestDTO).subscribe(
+      response => { console.log(response); }
+    )
   }
 
   openModalUpdateExperince(experience: Experience): void {

@@ -53,8 +53,6 @@ export class ConnectionRequestsComponent implements OnInit {
     this.requestDTO.requestReceiverId = requestSenderId;
     this.requestDTO.requestSenderId = this.id;
 
-    console.log(this.requestDTO);
-
     this._connectionService.approveRequest(this.requestDTO).subscribe(
       response => {
         console.log(response);
