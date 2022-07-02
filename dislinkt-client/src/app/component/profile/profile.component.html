@@ -34,13 +34,18 @@
             <div style="width: 100%;">
                 <div style="float: right; width: 250px;" *ngIf="!isProfileOwner">
                     <button mat-flat-button color="primary"
-                        style="margin-inline:5%; margin-bottom: 10%; margin-top: 5%; padding-inline: 10%;">Connect
+                        style="margin-inline:5%; margin-bottom: 10%; margin-top: 5%; padding-inline: 10%;"
+                        *ngIf="isAuthenticated && !isConnection">Connect
                     </button>
-                    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                    <button mat-flat-button color="primary" disabled
+                    style="margin-inline:5%; margin-bottom: 10%; margin-top: 5%; padding-inline: 10%;"
+                    *ngIf="isAuthenticated && isConnection">Connected
+                </button>
+                    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" *ngIf="isAuthenticated">
                         <mat-icon>more_vert</mat-icon>
                     </button>
                     <mat-menu #menu="matMenu">
-                        <button mat-menu-item>
+                        <button mat-menu-item *ngIf="isConnection">
                             <span>Remove Connection</span>
                         </button>
                         <button mat-menu-item (click)="blockConnection()">
@@ -49,17 +54,31 @@
                     </mat-menu>
                 </div>
                 <div style="float: right; width: 350px;" *ngIf="isProfileOwner">
-                    <button mat-button [matMenuTriggerFor]="privacy">
+                    <button mat-button [matMenuTriggerFor]="privacy" *ngIf="profile.isPrivate">
                         Private
                     </button>
+                    <button mat-button [matMenuTriggerFor]="privacy" *ngIf="!profile.isPrivate">
+                        Public
+                    </button>
                     <mat-menu #privacy="matMenu">
-                        <button mat-menu-item>
+                        <button mat-menu-item *ngIf="profile.isPrivate" (click)="makeProfilePublic()">
                             <span>Set Public</span>
+                        </button>
+                        <button mat-menu-item *ngIf="!profile.isPrivate" (click)="makeProfilePrivate()">
+                            <span>Set Private</span>
                         </button>
                     </mat-menu>
                     <button mat-stroked-button color="primary"
                         style="margin-inline:5%; margin-bottom: 10%; margin-top: 5%; padding-inline: 10%;">Add Profile
                         Section
+                    </button>
+                </div>
+                <div style="float: left; margin-left: 14px; width: 350px;" *ngIf="!isProfileOwner">
+                    <button mat-button *ngIf="profile.isPrivate">
+                        Private
+                    </button>
+                    <button mat-button *ngIf="!profile.isPrivate">
+                        Public
                     </button>
                 </div>
             </div>
@@ -82,7 +101,7 @@
     </div>
 
     <br>
-    <div class="profiles-container flex-container" style=" width:100%; padding: 2%; padding-inline: 3%;">
+    <div class="profiles-container flex-container" style=" width:100%; padding: 2%; padding-inline: 3%;" *ngIf="!profile.isPrivate || isConnection || isProfileOwner">
         <h2 style="margin: 1%; font-size: 24px; font-weight: 400; width:28%;">Activity</h2>
         <div style="width:70%">
             <button mat-stroked-button color="primary" [routerLink]="['/feed']"
@@ -109,7 +128,7 @@
     </div>
 
     <br>
-    <div class="profiles-container flex-container" style="padding: 2%; padding-inline: 3%;">
+    <div class="profiles-container flex-container" style="padding: 2%; padding-inline: 3%;" *ngIf="!profile.isPrivate || isConnection || isProfileOwner">
         <h2 style="margin: 1%; font-size: 24px; font-weight: 400; width:28%;">Experience</h2>
         <div style="width:70%" *ngIf="isProfileOwner">
             <button mat-icon-button color="primary"
@@ -136,7 +155,7 @@
 
 
     <br>
-    <div class="profiles-container flex-container" style="padding: 2%; padding-inline: 3%;">
+    <div class="profiles-container flex-container" style="padding: 2%; padding-inline: 3%;" *ngIf="!profile.isPrivate || isConnection || isProfileOwner">
         <h2 style="margin: 1%; font-size: 24px; font-weight: 400; width:28%;">Education</h2>
         <div style="width:70%" *ngIf="isProfileOwner">
             <button mat-icon-button color="primary"
@@ -178,7 +197,7 @@
     </div>
 
     <br>
-    <div class="profiles-container flex-container" style="padding: 2%; padding-inline: 3%;">
+    <div class="profiles-container flex-container" style="padding: 2%; padding-inline: 3%;" *ngIf="!profile.isPrivate || isConnection || isProfileOwner">
         <h2 style="margin: 1%; font-size: 24px; font-weight: 400; width:28%;">Interests</h2>
         <div style="width:70%" *ngIf="isProfileOwner">
             <button mat-icon-button color="primary"

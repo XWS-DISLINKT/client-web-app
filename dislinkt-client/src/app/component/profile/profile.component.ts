@@ -1,4 +1,3 @@
-import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
@@ -18,6 +17,7 @@ import { Profile } from 'src/app/model/profile';
 import { ConnectionService } from 'src/app/service/connection-service/connection.service';
 import { PostService } from 'src/app/service/post-service/post.service';
 import { ProfileService } from 'src/app/service/profile-service/profile.service';
+import { isLoggedIn } from 'src/app/service/authentication-service/auth-service';
 
 @Component({
   selector: 'app-profile',
@@ -28,7 +28,10 @@ export class ProfileComponent implements OnInit {
   private id: any;
   private ownerId: any;
   private routes: any;
-  isProfileOwner = false; 
+  private connectionsId: string[];
+  isProfileOwner = false;
+  isAuthenticated = false; 
+  isConnection = false;
   profile: Profile = {
     id: "",
     name: "",
@@ -63,7 +66,9 @@ export class ProfileComponent implements OnInit {
     this.isProfileOwner = this.checkIfIsOwner(this.id);
     this.ownerId = localStorage.getItem("loggedId");
     this.getProfile(this.id);
-    this.getUserPosts(this.id);      
+    this.getUserPosts(this.id);
+    this.isAuthenticated = isLoggedIn();  
+    this.getConnections(this.ownerId);  
   }
 
   getProfile(id: string): void {
@@ -77,6 +82,18 @@ export class ProfileComponent implements OnInit {
 
   checkIfIsOwner(id: string): boolean {
     return id === localStorage.getItem("loggedId") ? true : false;
+  }
+
+  checkIfIsConnection(id: string): void {
+    if (!this.isProfileOwner) {
+      for (let i = 0; i < this.connectionsId.length; i++) {
+        if (id === this.connectionsId[i]) {
+          this.isConnection = true;
+        }
+      }
+    } else {
+      this.isConnection = false;
+    }
   }
 
   getUserPosts(userId: string): void {
@@ -111,6 +128,42 @@ export class ProfileComponent implements OnInit {
 
     this._connectionService.blockConnection(this.requestDTO).subscribe(
       response => { console.log(response); }
+    )
+  }
+
+  makeProfilePublic(): void {
+    this.profile.isPrivate = false;
+    console.log(this.profile)
+    this._profileService.updateProfile(this.id, this.profile).subscribe(
+      response => {
+        console.log(response);
+      }
+    )
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
+  }
+
+  makeProfilePrivate(): void {
+    this.profile.isPrivate = true;
+    console.log(this.profile)
+    this._profileService.updateProfile(this.id, this.profile).subscribe(
+      response => {
+        console.log(response);
+      }
+    )
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
+  }
+
+  getConnections(userId: string): void {
+    this._connectionService.getConnections(userId).subscribe(
+      response => {
+        this.connectionsId = response;
+        this.checkIfIsConnection(this.id);
+        console.log(this.isConnection);
+      }
     )
   }
 
