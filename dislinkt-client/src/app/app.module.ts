@@ -38,7 +38,8 @@ import { AddJobComponent } from './modal/add-job/add-job.component';
 import { DisplayConnectionTokenComponent } from './modal/display-connection-token/display-connection-token.component'; 
 import { LinkyModule } from 'angular-linky';
 import { NotificationsComponent } from './component/notifications/notifications.component';
-
+import { NotificationSettingsComponent } from './modal/notification-settings/notification-settings.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { NotificationsComponent } from './component/notifications/notifications.
     JobsComponent,
     AddJobComponent,
     DisplayConnectionTokenComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    NotificationSettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -80,6 +82,7 @@ import { NotificationsComponent } from './component/notifications/notifications.
     MatDividerModule,
     MatAutocompleteModule,
     MatChipsModule,
+    MatSlideToggleModule,
     LinkyModule,
     FormsModule,
     ReactiveFormsModule,

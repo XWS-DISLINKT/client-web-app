@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { NotificationSettingsComponent } from 'src/app/modal/notification-settings/notification-settings.component';
 import { Notification } from 'src/app/model/notification';
 import { ProfileService } from 'src/app/service/profile-service/profile.service';
 
@@ -11,7 +13,7 @@ export class NotificationsComponent implements OnInit {
   private id: any;
   numberOfUnreadNotifications: number = 0;
   notifications: Notification[] = [];
-  constructor(private _profileService: ProfileService) { }
+  constructor(private _profileService: ProfileService,  public matDialog: MatDialog) { }
 
   ngOnInit(): void {
     this.id = localStorage.getItem("loggedId");
@@ -43,6 +45,18 @@ export class NotificationsComponent implements OnInit {
       return "background-color: #FFFFFF;";
     }
     return "background-color: #EEF3F8;"
+  }
+  openSettingsDialog(): void {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.id = "notification-settings-modal";
+    dialogConfig.height = "350px";
+    dialogConfig.width = "30%";
+    const modalDialog = this.matDialog.open(NotificationSettingsComponent, dialogConfig);
+    modalDialog.afterClosed().subscribe(result => {
+      location.reload()
+    })
+    
   }
 
 }
