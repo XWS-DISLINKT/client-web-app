@@ -5,6 +5,7 @@ import { ConnectionsComponent } from './component/connections/connections.compon
 import { FeedComponent } from './component/feed/feed.component';
 import { JobsComponent } from './component/jobs/jobs.component';
 import { LoginComponent } from './component/login/login.component';
+import { NotificationsComponent } from './component/notifications/notifications.component';
 import { ProfileComponent } from './component/profile/profile.component';
 import { ProfilesComponent } from './component/profiles/profiles.component';
 import { RegistrationComponent } from './component/registration/registration.component';
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'profile/:id', component: ProfileComponent },
   { path: 'requests', component: ConnectionRequestsComponent },
   { path: 'connections', component: ConnectionsComponent },
+  { path: 'notifications', component: NotificationsComponent },
   { path: 'jobs', component: JobsComponent },
 ];
 

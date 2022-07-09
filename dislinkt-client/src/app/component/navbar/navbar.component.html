@@ -16,6 +16,7 @@
     <button *ngIf="isAuthenticated" mat-button [routerLink]="['/jobs']">Jobs</button>
     <button *ngIf="isAuthenticated" mat-button [routerLink]="['']">Messaging</button>
     <button *ngIf="isAuthenticated" mat-button (click)="openProfile()">My profile</button>
+    <button *ngIf="isAuthenticated" mat-button [routerLink]="['/notifications']">Notifications</button>
     
     <button *ngIf="!isAuthenticated" mat-button  [routerLink]="['/profiles']" >Profiles</button>
     <span class="example-spacer"></span>

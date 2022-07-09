@@ -1,0 +1,19 @@
+<div style="margin-inline: 20%; margin-top: 2%;">
+    <div class="profiles-container">
+        <h2 style="font-size:20px; font-weight: 200; padding-inline: 2%; padding-top: 2%;">{{numberOfUnreadNotifications}} New Notification(s)</h2>
+
+        <div *ngFor="let notification of notifications" [style]="getColor(notification.seen)">
+            <hr color="#c5c5c5" size="1" style="width: 100%;">
+            <div class="flex-container">
+                <div class="flex-item-left profile-picture">
+                    <img src="../../../assets/images/profile.jpg" class="profile-picture" />
+                </div>
+                <div class="flex-item-right">
+                    <p style="font-size: small; font-weight: 400;">{{notification.notificationType | uppercase}} NOTIFICATION</p>
+                    <p style="margin-block: 0.5%;">{{notification.content}}.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>

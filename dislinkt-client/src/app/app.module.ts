@@ -37,6 +37,7 @@ import { JobsComponent } from './component/jobs/jobs.component';
 import { AddJobComponent } from './modal/add-job/add-job.component';
 import { DisplayConnectionTokenComponent } from './modal/display-connection-token/display-connection-token.component'; 
 import { LinkyModule } from 'angular-linky';
+import { NotificationsComponent } from './component/notifications/notifications.component';
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import { LinkyModule } from 'angular-linky';
     EditEducationComponent,
     JobsComponent,
     AddJobComponent,
-    DisplayConnectionTokenComponent
+    DisplayConnectionTokenComponent,
+    NotificationsComponent
   ],
   imports: [
     BrowserModule,

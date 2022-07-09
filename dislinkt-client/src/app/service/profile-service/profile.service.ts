@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Notification } from 'src/app/model/notification';
 import { Profile } from 'src/app/model/profile';
 import { environment } from 'src/environments/environment';
 
@@ -26,5 +27,13 @@ export class ProfileService {
 
   updateProfile(id: string, updatedProfile: Profile): Observable<any> {
     return this._http.put<any>(this.applicationURL + "/profile/" + id, updatedProfile);
+  }
+
+  getNotificationsByUser(id: string): Observable<any> {
+    return this._http.get<any>(this.applicationURL + "/notification/user/" + id);
+  }
+
+  SeeNotificationsByUser(id: string): Observable<any> {
+    return this._http.get<any>(this.applicationURL + "/notification/see/user/" + id);
   }
 }
