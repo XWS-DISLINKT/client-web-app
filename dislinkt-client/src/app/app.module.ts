@@ -43,6 +43,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { AdminPageComponent } from './component/admin-page/admin-page.component';
 import { MessagesComponent } from './component/messages/messages.component';
 import { ConnectionRecommendationsComponent } from './component/connection-recommendations/connection-recommendations.component';
+import { JobRecommendationsComponent } from './component/job-recommendations/job-recommendations.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { ConnectionRecommendationsComponent } from './component/connection-recom
     NotificationSettingsComponent,
     AdminPageComponent,
     MessagesComponent,
-    ConnectionRecommendationsComponent
+    ConnectionRecommendationsComponent,
+    JobRecommendationsComponent
   ],
   imports: [
     BrowserModule,

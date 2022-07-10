@@ -5,6 +5,7 @@ import { ConnectionRecommendationsComponent } from './component/connection-recom
 import { ConnectionRequestsComponent } from './component/connection-requests/connection-requests.component';
 import { ConnectionsComponent } from './component/connections/connections.component';
 import { FeedComponent } from './component/feed/feed.component';
+import { JobRecommendationsComponent } from './component/job-recommendations/job-recommendations.component';
 import { JobsComponent } from './component/jobs/jobs.component';
 import { LoginComponent } from './component/login/login.component';
 import { MessagesComponent } from './component/messages/messages.component';
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'notifications', component: NotificationsComponent },
   { path: 'messages/:id', component: MessagesComponent },
   { path: 'jobs', component: JobsComponent },
+  { path: 'job-recommendations', component: JobRecommendationsComponent },
   { path: 'admin', component: AdminPageComponent }
 ];
 

@@ -11,9 +11,13 @@
         <button mat-menu-item style="padding-inline: 12%;" [routerLink]="['/profiles']"> All Profiles</button>
         <button mat-menu-item style="padding-inline: 12%;" [routerLink]="['/connections']" > Connections</button>
         <button mat-menu-item style="padding-inline: 12%;" [routerLink]="['/requests']" > Requests</button>
-        <button mat-menu-item style="padding-inline: 12%;" [routerLink]="['/connection-recommendations']"> Recommendations</button>
+        <button mat-menu-item style="padding-inline: 12%;" [routerLink]="['/connection-recommendations']"> Suggestions</button>
     </mat-menu>
-    <button *ngIf="isAuthenticated && !isAdmin" mat-button [routerLink]="['/jobs']">Jobs</button>
+    <button *ngIf="isAuthenticated && !isAdmin" mat-button [matMenuTriggerFor]="jobs">Jobs</button>
+    <mat-menu #jobs="matMenu">
+        <button mat-menu-item style="padding-inline: 12%;" [routerLink]="['/jobs']"> All Jobs</button>
+        <button mat-menu-item style="padding-inline: 12%;" [routerLink]="['/job-recommendations']"> Suggestions</button>
+    </mat-menu>
     <button *ngIf="isAuthenticated && !isAdmin" mat-button [routerLink]="['/messages/id']">Messaging</button>
     <button *ngIf="isAuthenticated && !isAdmin" mat-button (click)="openProfile()">My profile</button>
     <button *ngIf="isAuthenticated && !isAdmin" mat-button [routerLink]="['/notifications']">Notifications</button>
