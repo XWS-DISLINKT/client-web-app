@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Profile } from 'src/app/model/profile';
 import { ConnectionService } from 'src/app/service/connection-service/connection.service';
 import { ProfileService } from 'src/app/service/profile-service/profile.service';
@@ -15,7 +16,8 @@ export class ConnectionsComponent implements OnInit {
   numberOfConnections: number = 0;
 
   constructor(private _connectionService: ConnectionService,
-              private _profileService: ProfileService) { }
+              private _profileService: ProfileService,
+              private _router: Router) { }
 
   ngOnInit(): void {
     this.id = localStorage.getItem("loggedId");
@@ -41,6 +43,10 @@ export class ConnectionsComponent implements OnInit {
         }
       )
     }
+  }
+
+  openChat(id: string): void {
+    this._router.navigate(['/messages/' + id]);
   }
 
 }

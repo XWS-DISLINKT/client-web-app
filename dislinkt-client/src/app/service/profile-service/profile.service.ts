@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Message } from 'src/app/model/message';
 import { Notification } from 'src/app/model/notification';
 import { Profile } from 'src/app/model/profile';
 import { environment } from 'src/environments/environment';
@@ -35,5 +36,13 @@ export class ProfileService {
 
   SeeNotificationsByUser(id: string): Observable<any> {
     return this._http.get<any>(this.applicationURL + "/notification/see/user/" + id);
+  }
+
+  getChatMessages(senderId: string, receiverId: string): Observable<any> {
+    return this._http.get<any>(this.applicationURL + "/message/" + senderId + "/" + receiverId);
+  }
+
+  sendMessage(messageDto: Message): Observable<any> {
+    return this._http.post<any>(this.applicationURL + "/message", messageDto);
   }
 }

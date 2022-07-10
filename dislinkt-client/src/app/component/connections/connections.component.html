@@ -15,7 +15,7 @@
                     <p style="margin-block: 0.5%;">17 shared connections</p>
                 </div>
                 <div class="flex-item-right">
-                    <button mat-stroked-button color="primary" style="margin: 2%;">Message </button>
+                    <button mat-stroked-button color="primary" style="margin: 2%;" (click)="openChat(connection.id)">Message </button>
                     <button mat-icon-button [matMenuTriggerFor]="menu">
                         <mat-icon>more_vert</mat-icon>
                     </button>

@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'requests', component: ConnectionRequestsComponent },
   { path: 'connections', component: ConnectionsComponent },
   { path: 'notifications', component: NotificationsComponent },
-  { path: 'messages/id', component: MessagesComponent },
+  { path: 'messages/:id', component: MessagesComponent },
   { path: 'jobs', component: JobsComponent },
   { path: 'admin', component: AdminPageComponent }
 ];
