@@ -27,5 +27,8 @@ export class JobService {
     return this._http.post<ApiKeyDto>(this.applicationURL + "/post/job/apikey", null);
   }
 
+  getJobSuggestions(id: string): Observable<any> {
+    return this._http.get<any>(this.applicationURL + "/post/job/suggest/" + id);
+  }
 
 }
