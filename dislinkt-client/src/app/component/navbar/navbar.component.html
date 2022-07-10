@@ -11,7 +11,7 @@
         <button mat-menu-item style="padding-inline: 12%;" [routerLink]="['/profiles']"> All Profiles</button>
         <button mat-menu-item style="padding-inline: 12%;" [routerLink]="['/connections']" > Connections</button>
         <button mat-menu-item style="padding-inline: 12%;" [routerLink]="['/requests']" > Requests</button>
-        <button mat-menu-item style="padding-inline: 12%;"> Suggestions</button>
+        <button mat-menu-item style="padding-inline: 12%;" [routerLink]="['/connection-recommendations']"> Recommendations</button>
     </mat-menu>
     <button *ngIf="isAuthenticated && !isAdmin" mat-button [routerLink]="['/jobs']">Jobs</button>
     <button *ngIf="isAuthenticated && !isAdmin" mat-button [routerLink]="['/messages/id']">Messaging</button>

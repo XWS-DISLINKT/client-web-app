@@ -42,6 +42,7 @@ import { NotificationSettingsComponent } from './modal/notification-settings/not
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { AdminPageComponent } from './component/admin-page/admin-page.component';
 import { MessagesComponent } from './component/messages/messages.component';
+import { ConnectionRecommendationsComponent } from './component/connection-recommendations/connection-recommendations.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { MessagesComponent } from './component/messages/messages.component';
     NotificationsComponent,
     NotificationSettingsComponent,
     AdminPageComponent,
-    MessagesComponent
+    MessagesComponent,
+    ConnectionRecommendationsComponent
   ],
   imports: [
     BrowserModule,

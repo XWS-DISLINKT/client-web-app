@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminPageComponent } from './component/admin-page/admin-page.component';
+import { ConnectionRecommendationsComponent } from './component/connection-recommendations/connection-recommendations.component';
 import { ConnectionRequestsComponent } from './component/connection-requests/connection-requests.component';
 import { ConnectionsComponent } from './component/connections/connections.component';
 import { FeedComponent } from './component/feed/feed.component';
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'registration', component: RegistrationComponent },
   { path: 'feed', component: FeedComponent },
   { path: 'profiles', component: ProfilesComponent },
+  { path: 'connection-recommendations', component: ConnectionRecommendationsComponent },
   { path: 'profile/:id', component: ProfileComponent },
   { path: 'requests', component: ConnectionRequestsComponent },
   { path: 'connections', component: ConnectionsComponent },
