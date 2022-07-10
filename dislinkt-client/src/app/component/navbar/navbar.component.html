@@ -6,17 +6,18 @@
     <button *ngIf="isAuthenticated" mat-button class="example-icon" aria-label="Example icon-button with menu icon"  [routerLink]="['/feed']">
         Home
     </button>
-    <button *ngIf="isAuthenticated" mat-button [matMenuTriggerFor]="network">Network</button>
+    <button *ngIf="isAuthenticated && !isAdmin" mat-button [matMenuTriggerFor]="network">Network</button>
     <mat-menu #network="matMenu">
         <button mat-menu-item style="padding-inline: 12%;" [routerLink]="['/profiles']"> All Profiles</button>
         <button mat-menu-item style="padding-inline: 12%;" [routerLink]="['/connections']" > Connections</button>
         <button mat-menu-item style="padding-inline: 12%;" [routerLink]="['/requests']" > Requests</button>
         <button mat-menu-item style="padding-inline: 12%;"> Suggestions</button>
     </mat-menu>
-    <button *ngIf="isAuthenticated" mat-button [routerLink]="['/jobs']">Jobs</button>
-    <button *ngIf="isAuthenticated" mat-button [routerLink]="['']">Messaging</button>
-    <button *ngIf="isAuthenticated" mat-button (click)="openProfile()">My profile</button>
-    <button *ngIf="isAuthenticated" mat-button [routerLink]="['/notifications']">Notifications</button>
+    <button *ngIf="isAuthenticated && !isAdmin" mat-button [routerLink]="['/jobs']">Jobs</button>
+    <button *ngIf="isAuthenticated && !isAdmin" mat-button [routerLink]="['']">Messaging</button>
+    <button *ngIf="isAuthenticated && !isAdmin" mat-button (click)="openProfile()">My profile</button>
+    <button *ngIf="isAuthenticated && !isAdmin" mat-button [routerLink]="['/notifications']">Notifications</button>
+    <button *ngIf="isAuthenticated && isAdmin" mat-button>Events</button>
     
     <button *ngIf="!isAuthenticated" mat-button  [routerLink]="['/profiles']" >Profiles</button>
     <span class="example-spacer"></span>
