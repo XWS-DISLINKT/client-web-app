@@ -3,7 +3,7 @@
     
     <span style="margin-left: 1%; margin-right: 5%; ">Dislinked</span>
     
-    <button *ngIf="isAuthenticated" mat-button class="example-icon" aria-label="Example icon-button with menu icon"  [routerLink]="['/feed']">
+    <button *ngIf="isAuthenticated && !isAdmin" mat-button class="example-icon" aria-label="Example icon-button with menu icon"  [routerLink]="['/feed']">
         Home
     </button>
     <button *ngIf="isAuthenticated && !isAdmin" mat-button [matMenuTriggerFor]="network">Network</button>
@@ -17,7 +17,7 @@
     <button *ngIf="isAuthenticated && !isAdmin" mat-button [routerLink]="['']">Messaging</button>
     <button *ngIf="isAuthenticated && !isAdmin" mat-button (click)="openProfile()">My profile</button>
     <button *ngIf="isAuthenticated && !isAdmin" mat-button [routerLink]="['/notifications']">Notifications</button>
-    <button *ngIf="isAuthenticated && isAdmin" mat-button>Events</button>
+    <button *ngIf="isAuthenticated && isAdmin" mat-button [routerLink]="['/admin']">Events</button>
     
     <button *ngIf="!isAuthenticated" mat-button  [routerLink]="['/profiles']" >Profiles</button>
     <span class="example-spacer"></span>

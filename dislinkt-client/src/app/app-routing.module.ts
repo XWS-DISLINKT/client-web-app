@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminPageComponent } from './component/admin-page/admin-page.component';
 import { ConnectionRequestsComponent } from './component/connection-requests/connection-requests.component';
 import { ConnectionsComponent } from './component/connections/connections.component';
 import { FeedComponent } from './component/feed/feed.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'connections', component: ConnectionsComponent },
   { path: 'notifications', component: NotificationsComponent },
   { path: 'jobs', component: JobsComponent },
+  { path: 'admin', component: AdminPageComponent }
 ];
 
 @NgModule({
