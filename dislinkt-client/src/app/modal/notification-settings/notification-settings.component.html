@@ -6,17 +6,22 @@
         </div>
         <br>
         <br>
-        <form class="example-form" [formGroup]="formGroup" (ngSubmit)="onFormSubmit()"  style=" margin-inline: 3%;" ngNativeValidate>
+        <div  style=" margin-inline: 3%;">
 
-            <mat-slide-toggle formControlName="message">Enable Message Notificatons</mat-slide-toggle>
-            <mat-slide-toggle formControlName="post">Enable Post Notifications</mat-slide-toggle>
-            <mat-slide-toggle formControlName="connection">Enable Connection Notifications</mat-slide-toggle>
+            <!-- <mat-slide-toggle [(ngModel)]="message">Enable Message Notificatons</mat-slide-toggle>
+            <mat-slide-toggle [(ngModel)]="post">Enable Post Notifications</mat-slide-toggle>
+            <mat-slide-toggle [(ngModel)]="connection">Enable Connection Notifications</mat-slide-toggle> -->
 
+            <section class="example-section">
+                <p><mat-checkbox [(ngModel)]="message">Enable Message Notificatons</mat-checkbox></p>
+                <p><mat-checkbox [(ngModel)]="post">Enable Post Notifications</mat-checkbox></p>
+                <p><mat-checkbox [(ngModel)]="connection">Enable Connection Notifications</mat-checkbox></p>
+              </section>
             <br>
             <br>
             <div style=" margin-inline: 10%; text-align: center;">
-                <button mat-raised-button color="primary" type="submit">Save Settings</button>
+                <button mat-raised-button color="primary" (click)="onSubmit()">Save Settings</button>
             </div>
-        </form>
+        </div>
     </div>
 </div>

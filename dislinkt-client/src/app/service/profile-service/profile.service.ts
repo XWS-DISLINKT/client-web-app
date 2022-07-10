@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { NotificationSettingsComponent } from 'src/app/modal/notification-settings/notification-settings.component';
 import { Message } from 'src/app/model/message';
 import { Notification } from 'src/app/model/notification';
+import { NotificationSettingsDto } from 'src/app/model/notification-settings-dto';
 import { Profile } from 'src/app/model/profile';
 import { environment } from 'src/environments/environment';
 
@@ -44,5 +46,9 @@ export class ProfileService {
 
   sendMessage(messageDto: Message): Observable<any> {
     return this._http.post<any>(this.applicationURL + "/message", messageDto);
+  }
+
+  changeNotificationSettings(nsd: NotificationSettingsDto): Observable<any> {
+    return this._http.post<any>(this.applicationURL + "/notification-settings", nsd);
   }
 }

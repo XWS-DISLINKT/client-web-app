@@ -44,6 +44,7 @@ import { AdminPageComponent } from './component/admin-page/admin-page.component'
 import { MessagesComponent } from './component/messages/messages.component';
 import { ConnectionRecommendationsComponent } from './component/connection-recommendations/connection-recommendations.component';
 import { JobRecommendationsComponent } from './component/job-recommendations/job-recommendations.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -76,6 +77,7 @@ import { JobRecommendationsComponent } from './component/job-recommendations/job
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MatCheckboxModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatCardModule,
