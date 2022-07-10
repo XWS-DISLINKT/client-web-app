@@ -51,7 +51,7 @@ export class NotificationsComponent implements OnInit {
     dialogConfig.disableClose = false;
     dialogConfig.id = "notification-settings-modal";
     dialogConfig.height = "350px";
-    dialogConfig.width = "30%";
+    dialogConfig.width = "23%";
     const modalDialog = this.matDialog.open(NotificationSettingsComponent, dialogConfig);
     modalDialog.afterClosed().subscribe(result => {
       location.reload()

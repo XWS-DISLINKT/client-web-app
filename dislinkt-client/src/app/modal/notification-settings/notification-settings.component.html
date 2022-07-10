@@ -1,12 +1,12 @@
 <div class="profiles-container flex-container" style="padding: 2%; padding-inline: 3%;">
     <div style="width: 100%;">
-        <div style=" margin-inline: 20%; text-align: center;">
+        <div style=" margin-inline: 10%; text-align: center;">
             <h2 style="font-size:22px; font-weight: 300; margin-bottom: 5%;">Notification Settings</h2>
             <div class="rectangle"></div>
         </div>
         <br>
         <br>
-        <form class="example-form" [formGroup]="formGroup" (ngSubmit)="onFormSubmit()" ngNativeValidate>
+        <form class="example-form" [formGroup]="formGroup" (ngSubmit)="onFormSubmit()"  style=" margin-inline: 3%;" ngNativeValidate>
 
             <mat-slide-toggle formControlName="message">Enable Message Notificatons</mat-slide-toggle>
             <mat-slide-toggle formControlName="post">Enable Post Notifications</mat-slide-toggle>
@@ -14,7 +14,9 @@
 
             <br>
             <br>
-            <button mat-raised-button type="submit">Save Settings</button>
+            <div style=" margin-inline: 10%; text-align: center;">
+                <button mat-raised-button color="primary" type="submit">Save Settings</button>
+            </div>
         </form>
     </div>
 </div>

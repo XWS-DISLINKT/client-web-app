@@ -40,6 +40,7 @@ import { LinkyModule } from 'angular-linky';
 import { NotificationsComponent } from './component/notifications/notifications.component';
 import { NotificationSettingsComponent } from './modal/notification-settings/notification-settings.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { MessagesComponent } from './component/messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     AddJobComponent,
     DisplayConnectionTokenComponent,
     NotificationsComponent,
-    NotificationSettingsComponent
+    NotificationSettingsComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,

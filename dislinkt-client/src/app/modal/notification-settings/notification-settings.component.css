@@ -10,3 +10,6 @@
     margin-right: auto;
     background-color: #356AAE;
 }
+button {
+    border-radius: 30px;
+}
