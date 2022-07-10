@@ -35,7 +35,11 @@ export class AddSkillComponent implements OnInit {
     education: [],
     skills: [],
     interests: [],
-    experience: []
+    experience: [],
+    receivesMessageNotifications: false,
+    receivesPostNotifications: false,
+    receivesConnectionNotifications: false,
+    isAdmin: false
   }
 
   @ViewChild('skillInput') skillInput: ElementRef<HTMLInputElement> = {} as ElementRef;

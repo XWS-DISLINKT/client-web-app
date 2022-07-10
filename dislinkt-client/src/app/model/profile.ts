@@ -13,4 +13,8 @@ export interface Profile {
     skills: string[];
     interests: string[];
     experience: Experience[];
+    receivesMessageNotifications: boolean;
+    receivesPostNotifications: boolean;
+    receivesConnectionNotifications: boolean;
+    isAdmin: boolean;
 }

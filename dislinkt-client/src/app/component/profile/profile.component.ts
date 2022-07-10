@@ -43,7 +43,11 @@ export class ProfileComponent implements OnInit {
     education: [],
     skills: [],
     interests: [],
-    experience: []
+    experience: [],
+    receivesMessageNotifications: false,
+    receivesPostNotifications: false,
+    receivesConnectionNotifications: false,
+    isAdmin: false
   }
 
   private requestDTO: RequestDTO = {

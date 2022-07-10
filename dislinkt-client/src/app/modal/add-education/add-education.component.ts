@@ -22,7 +22,11 @@ export class AddEducationComponent implements OnInit {
     education: [],
     skills: [],
     interests: [],
-    experience: []
+    experience: [],
+    receivesMessageNotifications: false,
+    receivesPostNotifications: false,
+    receivesConnectionNotifications: false,
+    isAdmin: false
   }
 
   education: Education = {

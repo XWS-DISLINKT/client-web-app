@@ -21,7 +21,11 @@ export class AddBiographyComponent implements OnInit {
     education: [],
     skills: [],
     interests: [],
-    experience: []
+    experience: [],
+    receivesMessageNotifications: false,
+    receivesPostNotifications: false,
+    receivesConnectionNotifications: false,
+    isAdmin: false
   }
 
   constructor(private _profileService: ProfileService) { }

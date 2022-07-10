@@ -25,7 +25,11 @@ export class EditEducationComponent implements OnInit {
     education: [],
     skills: [],
     interests: [],
-    experience: []
+    experience: [],
+    receivesMessageNotifications: false,
+    receivesPostNotifications: false,
+    receivesConnectionNotifications: false,
+    isAdmin: false
   }
 
   education: Education = {
@@ -51,6 +55,9 @@ export class EditEducationComponent implements OnInit {
     this._profileService.getProfile(id).subscribe(
       response => {
         this.profile = response;
+        // this.profile.receivesConnectionNotifications = response.receivesConnectionNotifications;
+        // this.profile.receivesMessageNotifications = response.receivesMessageNotifications;
+        // this.profile.receivesPostNotifications = response.receivesPostNotifications;
       }
     )
   }
